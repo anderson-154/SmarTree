@@ -1,3 +1,58 @@
 <resources>
     <string name="app_name">SmarTree</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!--Strings profile -->
+    <string name="nombre">Nombre:</string>
+    <string name="cedula">Cedula:</string>
+    <string name="tel1">Telefono:</string>
+    <string name="finca1">Finca:</string>
+    <string name="correo1">Correo:</string>
+    <string name="nombre_com">Nombre completo</string>
+    <string name="finca">Finca</string>
+    <string name="doc">Documento</string>
+    <string name="tel">Telefono</string>
+    <string name="correo">Correo</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="confirm">Confirmar contraseña</string>
+    <string name="foto">Foto</string>
+    <string name="camara">Camara</string>
+    <string name="galeria">Galeria</string>
+    <string name="registro">Registrarme</string>
+    <string name="sesion">Inicia sesion</string>
+    <string name="registrar">Registrate</string>
+    <string name="ayuda">¿Olvidate tu contraseña? Obten ayuda</string>
+    <string name="cuenta">¿Tienes una cuenta?</string>
+    <string name="no_cuenta">¿No tienes cuenta?</string>
+    <string name="perfil">Perfil</string>
+    <string name="foto_perfil">Elige una foto de perfil:</string>
+    <string name="edit">Edita tu perfil</string>
+    <string name="no_guardar">¿Desea salir sin guardar?</string>
+    <string name="txt_guardar">Recuerde que si sale en estos momentos se perderan los cambios realizados.</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="ok_guardar">Cambios realizados con exito</string>
+    <string name="departamento">Departamento</string>
+    <string name="apellidos">Apellidos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="sensors_title">SENSORES</string>
+    <string name="sick_trees_title">CAFETOS ENFERMOS</string>
+    <string name="harvest_title">COSECHAS</string>
+    <string name="palm_registration">Registro de palma</string>
+    <string name="chontaduro">Chontaduro</string>
+    <string name="coco">Coco</string>
+    <string name="type">Tipo</string>
+    <string name="name_palm">Nombre</string>
+    <string name="size">Tamaño</string>
+    <string name="ubication">Ubicacion</string>
+
 </resources>

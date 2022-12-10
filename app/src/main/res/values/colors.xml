@@ -7,4 +7,18 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="dark_green">#297012</color>
+    <color name="light_green">#94b788</color>
+    <color name="dark_coffee">#a37c5e</color>
+    <color name="light_coffee">#deb896</color>
+    <color name="dark_orange">#ff3e3e</color>
+    <color name="light_orange">#ffa46c</color>
+    <color name="brown">#85200C</color>
+    <color name="grey">#A1ADA9</color>
+    <color name="orangeFloatButton">#ecdccc</color>
+    <color name="green_light">#0DE315</color>
+    <color name="grey_light">#B5B2B2</color>
+    <color name="green_soft">#68EF3C</color>
+    <color name="buttonfloat">#9cd484</color>
+    9cd484
 </resources>
