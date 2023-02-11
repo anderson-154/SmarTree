@@ -1,5 +1,6 @@
 package com.example.smartree
 
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import com.example.smartree.databinding.ActivityNavigationBinding
 class NavigationActivity : AppCompatActivity() {
 
     private lateinit var sensorsFragment: SensorsFragment
+    private lateinit var palmsFragment: PalmsFragment
 
     private val binding: ActivityNavigationBinding by lazy {
         ActivityNavigationBinding.inflate(layoutInflater)
@@ -18,6 +20,7 @@ class NavigationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         sensorsFragment = SensorsFragment.newInstance()
+        palmsFragment = PalmsFragment.newInstance()
 
         showFragment(sensorsFragment)
 
@@ -25,6 +28,7 @@ class NavigationActivity : AppCompatActivity() {
             when (menuItem.itemId) {
 
                 R.id.sensorsmenu -> { showFragment(sensorsFragment) }
+                R.id.treemenu -> { showFragment(palmsFragment) }
 
             }
             true
@@ -41,4 +45,6 @@ class NavigationActivity : AppCompatActivity() {
         transaction.replace(binding.homeFragment.id, fragment)
         transaction.commit()
     }
+
+
 }

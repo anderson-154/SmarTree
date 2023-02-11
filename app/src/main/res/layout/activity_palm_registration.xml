@@ -183,9 +183,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_btn"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerType"
         app:layout_constraintStart_toStartOf="@+id/sizePalmETLayout"
-        app:layout_constraintTop_toTopOf="@+id/spinner">
+        app:layout_constraintTop_toTopOf="@+id/spinnerType">
 
         <ImageView
             android:id="@+id/imageView12"
@@ -227,7 +227,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinnerType"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="16dp"
@@ -245,8 +245,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/dark_green"
-        app:layout_constraintEnd_toEndOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerType"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout7"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerType" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

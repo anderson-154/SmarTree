@@ -29,7 +29,7 @@ class SensorsFragment : Fragment(), SensorAdapter.OnClickSensorListener  {
 
         adapter.onClickSensorListener = this
         binding.addSensorFlotatingButton.setOnClickListener {
-            startActivity(Intent(activity,PalmRegistrationActivity::class.java))
+            startActivity(Intent(activity,SensorRegistrationActivity::class.java))
         }
         return binding.root
     }

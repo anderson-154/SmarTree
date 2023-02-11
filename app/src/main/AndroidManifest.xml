@@ -10,6 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmarTree">
         <activity
+            android:name=".SensorRegistrationActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".PalmRegistrationActivity"
             android:exported="false">
             <meta-data

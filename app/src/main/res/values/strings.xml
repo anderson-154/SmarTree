@@ -45,9 +45,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="sensors_title">SENSORES</string>
-    <string name="sick_trees_title">CAFETOS ENFERMOS</string>
-    <string name="harvest_title">COSECHAS</string>
+    <string name="palms_title">PALMAS</string>
     <string name="palm_registration">Registro de palma</string>
+    <string name="device_registration">Registro de dispositivo</string>
     <string name="chontaduro">Chontaduro</string>
     <string name="coco">Coco</string>
     <string name="type">Tipo</string>
