@@ -1,6 +1,8 @@
 package com.example.smartree
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -25,7 +27,7 @@ class RegistrationActivity : AppCompatActivity() {
         binding.signUpBtn.setOnClickListener {
 
             //Check if this account exists
-            val email = binding.emailSignUpET.text.toString()
+            val email = binding.emailSignUpET.editText!!.text.toString()
             val pass = binding.passwordSignUpET.editText!!.text.toString()
 
             //Check if are there empty fields
@@ -70,7 +72,7 @@ class RegistrationActivity : AppCompatActivity() {
         uid?.let {
             val user = User(
                 it,
-                binding.emailSignUpET.text.toString(),
+                Firebase.auth.currentUser?.email.toString(),
             )
             Firebase.firestore.collection("users").document(it).set(user).addOnSuccessListener {
                 Toast.makeText(this, "Cuenta creada exitosamente", Toast.LENGTH_LONG).show()
@@ -82,7 +84,14 @@ class RegistrationActivity : AppCompatActivity() {
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
             }
-            startActivity(Intent(this, LoginActivity::class.java))
+
+            val prefs: SharedPreferences.Editor = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+            prefs.putString("status", "incomplete")
+            prefs.apply()
+
+            startActivity(Intent(this, LoginActivity::class.java).apply {
+
+            })
             finish()
         }
     }

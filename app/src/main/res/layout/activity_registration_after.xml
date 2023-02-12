@@ -218,53 +218,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-15dp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="@string/registrar"
+                android:text="@string/completar"
                 android:textColor="@color/dark_orange"
-                android:textSize="34sp"
+                android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/poppins"
-                android:text="@string/cuenta"
-                android:textColor="@color/dark_green"
-                app:layout_constraintEnd_toStartOf="@+id/signInTxt"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/signUpBtn"
-                app:layout_constraintTop_toBottomOf="@+id/signUpBtn" />
-
             <Button
-                android:id="@+id/signUpBtn"
+                android:id="@+id/finishBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/background_btn"
                 android:fontFamily="@font/poppins_bold"
-                android:text="@string/registro"
+                android:text="@string/finalizar"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="@+id/dptoET"
                 app:layout_constraintStart_toStartOf="@+id/dptoET"
                 app:layout_constraintTop_toBottomOf="@+id/dptoET" />
-
-            <TextView
-                android:id="@+id/signInTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="50dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="@string/sesion"
-                android:textColor="@color/dark_green"
-                app:layout_constraintBottom_toBottomOf="@+id/textView9"
-                app:layout_constraintEnd_toEndOf="@+id/signUpBtn"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView9"
-                app:layout_constraintTop_toTopOf="@+id/textView9" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

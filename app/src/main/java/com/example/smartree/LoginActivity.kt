@@ -13,6 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import com.example.smartree.databinding.ActivityLoginBinding
+import com.example.smartree.model.User
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -24,6 +25,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
@@ -48,7 +50,6 @@ class LoginActivity : AppCompatActivity() {
 
         //init
         setup()
-        loadSession()
     }
 
     private fun setup(){
@@ -59,7 +60,15 @@ class LoginActivity : AppCompatActivity() {
                     email,
                     binding.passwordSignInET.editText!!.text.toString()
                 ).addOnSuccessListener {
-                    showHome(email, ProviderType.BASIC)
+                    //Comprobar si el usuario ha completado el registro
+                    Firebase.firestore.collection("users").document(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
+                        val user = it.toObject(User::class.java)!!
+                        if(user.name!=""){
+                            showHome(email, ProviderType.BASIC)
+                        }else{
+                            showForm(email, ProviderType.BASIC)
+                        }
+                    }
                 }.addOnFailureListener{
                     Toast.makeText(this,it.message, Toast.LENGTH_LONG).show()
                 }
@@ -113,18 +122,16 @@ class LoginActivity : AppCompatActivity() {
         callBackManager.onActivityResult(requestCode, resultCode, data)
     }
 
-    private fun loadSession(){
-        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
-        val email = prefs.getString("email", null)
-        val provider = prefs.getString("provider", null)
-
-        if(email!=null && provider!=null){
-            showHome(email, ProviderType.valueOf(provider))
-        }
-    }
-
     private fun showHome(email:String, provider:ProviderType ){
         val intent = Intent(this, NavigationActivity::class.java)
+        intent.putExtra("email", email)
+        intent.putExtra("provider", provider.name)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun showForm(email:String, provider:ProviderType){
+        val intent = Intent(this, RegistrationAfterActivity::class.java)
         intent.putExtra("email", email)
         intent.putExtra("provider", provider.name)
         startActivity(intent)
@@ -138,7 +145,26 @@ class LoginActivity : AppCompatActivity() {
             if(account != null){
                 val credential = GoogleAuthProvider.getCredential(account.idToken, null)
                 Firebase.auth.signInWithCredential(credential).addOnSuccessListener {
-                    showHome(account.email?:"", ProviderType.GOOGLE)
+                    val uid = Firebase.auth.currentUser!!.uid
+
+                    Firebase.firestore.collection("users").document(uid).get().addOnSuccessListener {
+                        var user = it.toObject(User::class.java)
+
+                        //Comprobar si el usuario existe, y sino, crearlo
+                        if (user==null){
+                            user = User(uid, Firebase.auth.currentUser!!.email.toString())
+                            Firebase.firestore.collection("users").document(uid).set(user).addOnSuccessListener {
+                                Toast.makeText(this, "Usuario creado con exito", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+
+                        //Comprobar si el usuario a completado el registro
+                        if(user.name!=""){
+                            showHome(account.email?:"", ProviderType.GOOGLE)
+                        }else{
+                            showForm(account.email?:"", ProviderType.GOOGLE)
+                        }
+                    }
                 }.addOnFailureListener{
                     showAlert()
                 }
@@ -174,6 +200,4 @@ class LoginActivity : AppCompatActivity() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
-
-
 }

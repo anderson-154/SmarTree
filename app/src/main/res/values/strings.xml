@@ -22,6 +22,7 @@
     <string name="tel">Telefono</string>
     <string name="direccion">Dirección finca</string>
     <string name="city">Ciudad</string>
+    <string name="finalizar">Finalizar</string>
     <string name="dpto">Departamento</string>
     <string name="correo">Correo</string>
     <string name="contraseña">Contraseña</string>
@@ -32,6 +33,7 @@
     <string name="registro">Registrarme</string>
     <string name="sesion">Inicia sesion</string>
     <string name="registrar">Registrate</string>
+    <string name="completar">Completa tu registro</string>
     <string name="ayuda">¿Olvidaste tu contraseña? Obten ayuda</string>
     <string name="cuenta">¿Tienes una cuenta?</string>
     <string name="no_cuenta">¿No tienes cuenta?</string>
