@@ -39,7 +39,7 @@ class NavigationActivity : AppCompatActivity() {
         val provider = bundle?.getString("provider")
 
         val prefs: SharedPreferences.Editor = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-        prefs.putString("email",email)
+        prefs.putString("email", email)
         prefs.putString("provider", provider)
         prefs.apply()
 

@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.example.smartree.databinding.ActivityLoginBinding
@@ -72,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
     private fun showHome(email:String, provider:ProviderType ){
         val intent = Intent(this, NavigationActivity::class.java)
         intent.putExtra("email", email)
-        intent.putExtra("provider", provider)
+        intent.putExtra("provider", provider.name)
         startActivity(intent)
         finish()
     }
