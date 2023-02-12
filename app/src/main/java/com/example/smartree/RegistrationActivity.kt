@@ -3,11 +3,13 @@ package com.example.smartree
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.smartree.databinding.ActivityRegistrationBinding
 import com.example.smartree.model.User
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class RegistrationActivity : AppCompatActivity() {
@@ -27,7 +29,7 @@ class RegistrationActivity : AppCompatActivity() {
             val pass = binding.passwordSignUpET.editText!!.text.toString()
 
             //Check if are there empty fields
-            if(binding.nameET.text.toString() != "" && binding.lastnameET.text.toString() != "" && binding.documentET.text.toString() != ""
+            if(binding.nameET.text.toString() != "" && binding.farmET.text.toString() != "" && binding.documentET.text.toString() != ""
                 && email != "" && binding.phoneET.text.toString() != "" && pass != "" && binding.passwordConfirmET.editText!!.text.toString() != ""){
 
                 //Check if password is equal to Confirm_Password
@@ -68,12 +70,14 @@ class RegistrationActivity : AppCompatActivity() {
             val user = User(
                 it,
                 binding.nameET.text.toString(),
-                binding.lastnameET.text.toString(),
+                binding.farmET.text.toString(),
                 binding.documentET.text.toString(),
                 binding.emailSignUpET.text.toString(),
                 binding.phoneET.text.toString(),
             )
-            /*Firebase.firestore.collection("/users").document(it).set(user).addOnSuccessListener {
+            Log.e("---------->", "Antes de firestore")
+            Firebase.firestore.collection("users").document(it).set(user).addOnSuccessListener {
+                Log.e("---------->", "Firestore")
                 Toast.makeText(this, "Cuenta creada exitosamente", Toast.LENGTH_LONG).show()
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
@@ -82,7 +86,7 @@ class RegistrationActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error al crear la cuenta", Toast.LENGTH_LONG).show()
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
-            }*/
+            }
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
