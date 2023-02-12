@@ -55,4 +55,7 @@
     <string name="size">Tamaño</string>
     <string name="ubication">Ubicacion</string>
 
+    <!--Strings Firebase -->
+    <string name="prefs_file">PREFERENCE_FILE_KEY</string>
+
 </resources>

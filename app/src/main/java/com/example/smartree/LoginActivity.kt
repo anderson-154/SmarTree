@@ -1,5 +1,6 @@
 package com.example.smartree
 
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -23,34 +24,57 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        //Permissions
         requestPermissions(arrayOf(
             android.Manifest.permission.CAMERA,
             android.Manifest.permission.READ_EXTERNAL_STORAGE,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
             ,1)
 
+        //init
+        setup()
+        session()
+    }
+
+    private fun setup(){
         binding.signInBtn.setOnClickListener{
-            /**if(binding.emailSignInET.text.toString() != "" && binding.passwordSignInET.editText!!.text.toString() != ""){
+            if(binding.emailSignInET.text.toString() != "" && binding.passwordSignInET.editText!!.text.toString() != ""){
+                val email = binding.emailSignInET.text.toString()
                 Firebase.auth.signInWithEmailAndPassword(
-                    binding.emailSignInET.text.toString(),
+                    email,
                     binding.passwordSignInET.editText!!.text.toString()
                 ).addOnSuccessListener {
-                    startActivity(Intent(this,NavigationActivity::class.java))
-                    finish()
+                    showHome(email, ProviderType.BASIC)
                 }.addOnFailureListener{
                     Toast.makeText(this,it.message, Toast.LENGTH_LONG).show()
                 }
-            }else{
-                Toast.makeText(this,"Existen campos vacios", Toast.LENGTH_LONG).show()
-            }*/
-            startActivity(Intent(this,NavigationActivity::class.java))
-            finish()
+            }else {
+                Toast.makeText(this, "Existen campos vacios", Toast.LENGTH_LONG).show()
+            }
         }
 
         binding.signUpTxt.setOnClickListener {
             startActivity(Intent(this,RegistrationActivity::class.java))
             finish()
         }
+    }
+
+    private fun session(){
+        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        val email = prefs.getString("email", null)
+        val provider = prefs.getString("provider", null)
+
+        if(email!=null && provider!=null){
+            showHome(email, ProviderType.valueOf(provider))
+        }
+    }
+
+    private fun showHome(email:String, provider:ProviderType ){
+        val intent = Intent(this, NavigationActivity::class.java)
+        intent.putExtra("email", email)
+        intent.putExtra("provider", provider)
+        startActivity(intent)
+        finish()
     }
 
     override fun onRequestPermissionsResult(
