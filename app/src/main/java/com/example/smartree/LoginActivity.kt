@@ -34,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
 
         //init
         setup()
-        session()
+        loadSession()
     }
 
     private fun setup(){
@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun session(){
+    private fun loadSession(){
         val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
         val email = prefs.getString("email", null)
         val provider = prefs.getString("provider", null)

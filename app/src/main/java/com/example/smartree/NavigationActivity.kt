@@ -15,7 +15,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 enum class ProviderType {
-    BASIC
+    BASIC,
+    GOOGLE
 }
 
 class NavigationActivity : AppCompatActivity() {
