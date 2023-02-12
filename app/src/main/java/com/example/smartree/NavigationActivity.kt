@@ -11,12 +11,14 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.example.smartree.databinding.ActivityNavigationBinding
+import com.facebook.login.LoginManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 enum class ProviderType {
     BASIC,
-    GOOGLE
+    GOOGLE,
+    FACEBOOK
 }
 
 class NavigationActivity : AppCompatActivity() {
@@ -73,10 +75,15 @@ class NavigationActivity : AppCompatActivity() {
 
     fun onLogout(result: ActivityResult){
         if(result.resultCode== RESULT_OK){
-            Firebase.auth.signOut()
             val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
             prefs.clear()
             prefs.apply()
+
+            if(intent.extras?.getString("provider","")==ProviderType.FACEBOOK.name){
+                LoginManager.getInstance().logOut()
+            }
+
+            Firebase.auth.signOut()
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }

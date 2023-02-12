@@ -58,4 +58,10 @@
     <!--Strings Firebase -->
     <string name="prefs_file">PREFERENCE_FILE_KEY</string>
 
+    <string name="facebook_app_id">3541101222834231</string>
+    <string name="fb_login_protocol_scheme">fb3541101222834231</string>
+    <string name="facebook_client_token">56789</string>
+
+
+
 </resources>
