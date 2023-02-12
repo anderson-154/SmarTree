@@ -23,7 +23,7 @@ class NavigationActivity : AppCompatActivity() {
 
     private lateinit var sensorsFragment: SensorsFragment
     private lateinit var palmsFragment: PalmsFragment
-    private var launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(), ::onLogout)
+    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(), ::onLogout)
 
     private val binding: ActivityNavigationBinding by lazy {
         ActivityNavigationBinding.inflate(layoutInflater)
