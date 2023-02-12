@@ -35,6 +35,7 @@ class RegistrationActivity : AppCompatActivity() {
 
                 Firebase.auth.createUserWithEmailAndPassword(email, pass).addOnSuccessListener {
                     Toast.makeText(this, "Cuenta creada exitosamente", Toast.LENGTH_LONG).show()
+                    Firebase.auth.currentUser?.sendEmailVerification()
                     registerUserData()
                 }.addOnFailureListener {
                     showAlert()
@@ -75,8 +76,9 @@ class RegistrationActivity : AppCompatActivity() {
                 Firebase.auth.currentUser?.email.toString(),
             )
             Firebase.firestore.collection("users").document(it).set(user).addOnSuccessListener {
-                Toast.makeText(this, "Cuenta creada exitosamente", Toast.LENGTH_LONG).show()
-                startActivity(Intent(this, LoginActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java).apply {
+                    putExtra("alert","Cuenta creada exitosamente. Verifique su cuenta en su correo electrónico")
+                })
                 finish()
             }.addOnCanceledListener {
                 Firebase.auth.signOut()
@@ -84,15 +86,6 @@ class RegistrationActivity : AppCompatActivity() {
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
             }
-
-            val prefs: SharedPreferences.Editor = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-            prefs.putString("status", "incomplete")
-            prefs.apply()
-
-            startActivity(Intent(this, LoginActivity::class.java).apply {
-
-            })
-            finish()
         }
     }
 

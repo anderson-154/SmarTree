@@ -1,12 +1,10 @@
 package com.example.smartree
 
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -60,17 +58,22 @@ class LoginActivity : AppCompatActivity() {
                     email,
                     binding.passwordSignInET.editText!!.text.toString()
                 ).addOnSuccessListener {
-                    //Comprobar si el usuario ha completado el registro
-                    Firebase.firestore.collection("users").document(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
-                        val user = it.toObject(User::class.java)!!
-                        if(user.name!=""){
-                            showHome(email, ProviderType.BASIC)
-                        }else{
-                            showForm(email, ProviderType.BASIC)
+                    if(Firebase.auth.currentUser!!.isEmailVerified){
+                        //Comprobar si el usuario ha completado el registro
+                        Firebase.firestore.collection("users").document(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
+                            val user = it.toObject(User::class.java)!!
+                            if(user.name!=""){
+                                showHome(email, ProviderType.BASIC)
+                            }else{
+                                showForm(email, ProviderType.BASIC)
+                            }
                         }
+                    }else{
+                        showAlert("Correo invalido. Si ya creó una cuenta recuerde verificarla en su correo electrónico")
                     }
+
                 }.addOnFailureListener{
-                    Toast.makeText(this,it.message, Toast.LENGTH_LONG).show()
+                    showAlert()
                 }
             }else {
                 Toast.makeText(this, "Existen campos vacios", Toast.LENGTH_LONG).show()
@@ -106,13 +109,30 @@ class LoginActivity : AppCompatActivity() {
                             showAlert()
                         }
                     }
-                    override fun onCancel() {
-                        TODO("Not yet implemented")
-                    }
+                    override fun onCancel() {}
+
                     override fun onError(error: FacebookException) {
                         showAlert()
                     }
                 })
+        }
+
+        binding.forgotPasswordTV.setOnClickListener{
+            val email=binding.emailSignInET.text.toString()
+            if(email!=""){
+                Firebase.auth.sendPasswordResetEmail(email).addOnSuccessListener {
+                    showAlert("Se ha enviado un método de recuperación a su correo")
+                }.addOnCanceledListener {
+                    showAlert()
+                }
+            }else{
+                Toast.makeText(this, "Correo sin especificar", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val alert = intent.extras?.getString("alert", null)
+        if(alert!=null){
+            showAlert(alert)
         }
     }
 
@@ -187,15 +207,15 @@ class LoginActivity : AppCompatActivity() {
                 if (result == PackageManager.PERMISSION_DENIED) allGrant = false
             }
             if(!allGrant){
-                Toast.makeText(this,"Por favor acepte los permisos", Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Por favor acepte los permisos", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun showAlert(){
+    private fun showAlert(msg:String="Se ha producido un error autenticando al usuario"){
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Error")
-        builder.setMessage("Se ha producido un error autenticando al usuario")
+        builder.setTitle("SmarTree")
+        builder.setMessage(msg)
         builder.setPositiveButton("Aceptar", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()

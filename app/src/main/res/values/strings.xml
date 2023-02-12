@@ -26,6 +26,7 @@
     <string name="dpto">Departamento</string>
     <string name="correo">Correo</string>
     <string name="contraseña">Contraseña</string>
+    <string name="newpass">Nueva Contraseña</string>
     <string name="confirm">Confirmar contraseña</string>
     <string name="foto">Foto</string>
     <string name="camara">Camara</string>
@@ -34,6 +35,8 @@
     <string name="sesion">Inicia sesion</string>
     <string name="registrar">Registrate</string>
     <string name="completar">Completa tu registro</string>
+    <string name="recuperar">Recuperar contraseña</string>
+    <string name="confirmar">Confirmar</string>
     <string name="ayuda">¿Olvidaste tu contraseña? Obten ayuda</string>
     <string name="cuenta">¿Tienes una cuenta?</string>
     <string name="no_cuenta">¿No tienes cuenta?</string>
@@ -67,7 +70,6 @@
     <string name="facebook_app_id">3541101222834231</string>
     <string name="fb_login_protocol_scheme">fb3541101222834231</string>
     <string name="facebook_client_token">56789</string>
-
 
 
 </resources>
