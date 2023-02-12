@@ -17,8 +17,12 @@
     <string name="correo1">Correo:</string>
     <string name="nombre_com">Nombre completo</string>
     <string name="finca">Finca</string>
-    <string name="doc">Documento</string>
+    <string name="tipo">Tipo de documento</string>
+    <string name="documento">Documento</string>
     <string name="tel">Telefono</string>
+    <string name="direccion">Dirección finca</string>
+    <string name="city">Ciudad</string>
+    <string name="dpto">Departamento</string>
     <string name="correo">Correo</string>
     <string name="contraseña">Contraseña</string>
     <string name="confirm">Confirmar contraseña</string>

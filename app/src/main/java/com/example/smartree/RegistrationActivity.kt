@@ -29,26 +29,16 @@ class RegistrationActivity : AppCompatActivity() {
             val pass = binding.passwordSignUpET.editText!!.text.toString()
 
             //Check if are there empty fields
-            if(binding.nameET.text.toString() != "" && binding.farmET.text.toString() != "" && binding.documentET.text.toString() != ""
-                && email != "" && binding.phoneET.text.toString() != "" && pass != "" && binding.passwordConfirmET.editText!!.text.toString() != ""){
+            if(validate(email, pass, binding.passwordConfirmET.editText!!.text.toString())){
 
-                //Check if password is equal to Confirm_Password
-                if(pass == binding.passwordConfirmET.editText!!.text.toString()){
-
-                        //
-                        Firebase.auth.createUserWithEmailAndPassword(email, pass).addOnSuccessListener {
-                            Toast.makeText(this, "Cuenta creada exitosamente", Toast.LENGTH_LONG).show()
-                            registerUserData()
-                        }.addOnFailureListener {
-                            showAlert()
-                        }
-
-                }else{
-                    Toast.makeText(this, "Los campos de contraseña deben coincidir", Toast.LENGTH_LONG).show()
+                Firebase.auth.createUserWithEmailAndPassword(email, pass).addOnSuccessListener {
+                    Toast.makeText(this, "Cuenta creada exitosamente", Toast.LENGTH_LONG).show()
+                    registerUserData()
+                }.addOnFailureListener {
+                    showAlert()
                 }
-
             }else{
-                Toast.makeText(this, "Por favor llene todos los campos", Toast.LENGTH_LONG).show()
+                showAlert("Por favor llene todos los campos y asegurese de que los campos coincidan")
             }
         }
 
@@ -64,20 +54,25 @@ class RegistrationActivity : AppCompatActivity() {
 
     }
 
+    private fun validate(email:String, password1:String, password2:String): Boolean {
+        val isValid =
+
+        //Conditions
+           email != ""
+        && password1.length > 8
+        && password2 == password1
+
+        return isValid
+    }
+
     private fun registerUserData() {
         val uid = Firebase.auth.currentUser?.uid
         uid?.let {
             val user = User(
                 it,
-                binding.nameET.text.toString(),
-                binding.farmET.text.toString(),
-                binding.documentET.text.toString(),
                 binding.emailSignUpET.text.toString(),
-                binding.phoneET.text.toString(),
             )
-            Log.e("---------->", "Antes de firestore")
             Firebase.firestore.collection("users").document(it).set(user).addOnSuccessListener {
-                Log.e("---------->", "Firestore")
                 Toast.makeText(this, "Cuenta creada exitosamente", Toast.LENGTH_LONG).show()
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
@@ -92,10 +87,10 @@ class RegistrationActivity : AppCompatActivity() {
         }
     }
 
-    private fun showAlert(){
+    private fun showAlert(msg:String="Se ha producido un error autenticando al usuario"){
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
-        builder.setMessage("Se ha producido un error autenticando al usuario")
+        builder.setMessage(msg)
         builder.setPositiveButton("Aceptar", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
