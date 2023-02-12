@@ -24,8 +24,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout3">
 
 
         <TextView
@@ -74,7 +75,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/background_input"
             android:ems="10"
             android:hint="@string/contraseña"
@@ -100,7 +101,7 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:fontFamily="@font/poppins"
             android:text="@string/ayuda"
             android:textColor="@color/dark_green"
@@ -113,12 +114,10 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
+            android:layout_marginStart="50dp"
             android:fontFamily="@font/poppins"
             android:text="@string/no_cuenta"
             android:textColor="@color/dark_green"
-            app:layout_constraintEnd_toStartOf="@+id/signUpTxt"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/signInBtn"
             app:layout_constraintTop_toTopOf="@+id/signUpTxt" />
 
@@ -126,29 +125,28 @@
             android:id="@+id/signInBtn"
             android:layout_width="0dp"
             android:layout_height="62dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/background_btn"
             android:fontFamily="@font/poppins_bold"
             android:text="@string/sesion"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/passwordSignInET"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/passwordSignInET"
-            app:layout_constraintTop_toBottomOf="@+id/googleBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView
             android:id="@+id/signUpTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/poppins_bold"
             android:text="@string/registrar"
             android:textColor="@color/dark_green"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/signInBtn"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/signInBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/facebookBtn" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -163,25 +161,13 @@
             android:id="@+id/googleBtn"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:background="#00FFFFFF"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/signInBtn"
             app:srcCompat="@drawable/google" />
-
-        <ImageButton
-            android:id="@+id/facebookBtn"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:background="#00FFFFFF"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
-            app:srcCompat="@drawable/facebook" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"
@@ -191,6 +177,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintGuide_begin="201dp"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/facebookBtn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:background="#00FFFFFF"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/signInBtn"
+            app:srcCompat="@drawable/facebook" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
