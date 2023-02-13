@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.smartree.databinding.ActivityRegistrationBinding
+import com.example.smartree.model.Statistics
 import com.example.smartree.model.User
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore

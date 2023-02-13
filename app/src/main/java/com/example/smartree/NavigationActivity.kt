@@ -14,6 +14,7 @@ import com.example.smartree.databinding.ActivityNavigationBinding
 import com.facebook.login.LoginManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_navigation.*
 
 enum class ProviderType {
     BASIC,
@@ -25,6 +26,7 @@ class NavigationActivity : AppCompatActivity() {
 
     private lateinit var sensorsFragment: SensorsFragment
     private lateinit var palmsFragment: PalmsFragment
+    private lateinit var homeFragment: HomeFragment
     private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(), ::onLogout)
 
     private val binding: ActivityNavigationBinding by lazy {
@@ -34,6 +36,7 @@ class NavigationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        homeFragment = HomeFragment.newInstance()
         sensorsFragment = SensorsFragment.newInstance()
         palmsFragment = PalmsFragment.newInstance()
 
@@ -47,7 +50,7 @@ class NavigationActivity : AppCompatActivity() {
         prefs.apply()
 
         setup()
-        showFragment(sensorsFragment)
+        showFragment(homeFragment)
     }
 
     private fun showFragment (fragment : Fragment){
@@ -60,6 +63,7 @@ class NavigationActivity : AppCompatActivity() {
         binding.navigator.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
 
+                R.id.homemenu -> { showFragment(homeFragment) }
                 R.id.sensorsmenu -> { showFragment(sensorsFragment) }
                 R.id.treemenu -> { showFragment(palmsFragment) }
 

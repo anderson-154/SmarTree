@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.smartree.databinding.ActivityRegistrationAfterBinding
+import com.example.smartree.model.Statistics
 import com.example.smartree.model.User
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -64,9 +65,11 @@ class RegistrationAfterActivity : AppCompatActivity() {
 
     private fun registerUserData(user:User) {
         Firebase.firestore.collection("users").document(user.id).set(user).addOnSuccessListener {
-            Toast.makeText(this, "Datos registrados exitosamente", Toast.LENGTH_LONG).show()
-            val provider = intent.extras?.getString("provider", null)
-            showHome(user.email, provider)
+            Firebase.firestore.collection("statistics").document(user.id).set(Statistics()).addOnSuccessListener {
+                Toast.makeText(this, "Datos registrados exitosamente", Toast.LENGTH_LONG).show()
+                val provider = intent.extras?.getString("provider", null)
+                showHome(user.email, provider)
+            }
         }.addOnCanceledListener {
             showAlert()
         }
