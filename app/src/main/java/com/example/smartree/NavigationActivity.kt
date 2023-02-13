@@ -52,6 +52,10 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
 
         setup()
         showFragment(homeFragment)
+
+        binding.profileButton.setOnClickListener {
+            startActivity(Intent(this,ProfileActivity::class.java))
+        }
     }
 
     private fun showFragment (fragment : Fragment){

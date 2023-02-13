@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/cameraButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:clickable="true"
+        android:src="@drawable/camera"
+        app:backgroundTint="@color/orangeFloatButton"
+        app:layout_constraintBottom_toBottomOf="@+id/imgProfile"
+        app:layout_constraintEnd_toEndOf="@+id/textView13"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center_vertical"
+        android:text="@string/nombre"
+        android:textColor="@color/dark_green"
+        android:textStyle="bold"
+        app:flow_verticalAlign="center"
+        app:layout_constraintBottom_toBottomOf="@+id/nameEditProfileET"
+        app:layout_constraintEnd_toStartOf="@+id/nameEditProfileET"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
+
+    <EditText
+        android:id="@+id/nameEditProfileET"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="72dp"
+        android:background="@drawable/background_input"
+        android:minHeight="48dp"
+        android:paddingStart="5dp"
+        android:textColor="@color/brown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/imgProfile"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center_vertical"
+        android:text="@string/finca1"
+        android:textAlignment="textStart"
+        android:textColor="@color/dark_green"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/houseCampEditProfileET"
+        app:layout_constraintEnd_toStartOf="@+id/houseCampEditProfileET"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/textView17"
+        app:layout_constraintTop_toTopOf="@+id/houseCampEditProfileET" />
+
+    <EditText
+        android:id="@+id/houseCampEditProfileET"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/background_input"
+        android:minHeight="48dp"
+        android:paddingStart="5dp"
+        android:textColor="@color/brown"
+        app:layout_constraintEnd_toEndOf="@+id/phoneEditProfileET"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/phoneEditProfileET"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center_vertical"
+        android:text="@string/tel1"
+        android:textColor="@color/dark_green"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneEditProfileET"
+        app:layout_constraintEnd_toStartOf="@+id/phoneEditProfileET"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toTopOf="@+id/phoneEditProfileET" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/background_inferior"
+        android:foregroundGravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneEditProfileET">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/saveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="80dp"
+            android:clickable="true"
+            app:backgroundTint="@color/orangeFloatButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/save"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/phoneEditProfileET"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/background_input"
+        android:minHeight="48dp"
+        android:paddingStart="5dp"
+        android:textColor="@color/brown"
+        app:layout_constraintEnd_toEndOf="@+id/nameEditProfileET"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/nameEditProfileET"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/profile_empty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/edit"
+        android:textColor="@color/dark_orange"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backBtnEditProfile" />
+
+    <Button
+        android:id="@+id/backBtnEditProfile"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/btn_to_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

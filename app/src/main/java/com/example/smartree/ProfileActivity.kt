@@ -1,11 +1,13 @@
 package com.example.smartree
 
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
+import com.example.smartree.databinding.ActivityEditProfileBinding
 import com.example.smartree.databinding.ActivityProfileBinding
 import com.example.smartree.model.User
 import com.google.firebase.auth.ktx.auth
@@ -43,6 +45,10 @@ class ProfileActivity : AppCompatActivity() {
         binding.backBtnProfile.setOnClickListener {
             startActivity(Intent(this,HomeFragment::class.java))
             finish()
+        }
+
+        binding.editProfileButton.setOnClickListener {
+            startActivity(Intent(this, ActivityEditProfileBinding::class.java))
         }
     }
 }
