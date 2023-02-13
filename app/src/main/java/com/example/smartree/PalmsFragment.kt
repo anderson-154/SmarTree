@@ -14,7 +14,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
-class PalmsFragment : Fragment(), PalmAdapter.OnClickSensorListener  {
+class PalmsFragment(filer:String) : Fragment(), PalmAdapter.OnClickSensorListener  {
     private var _binding: FragmentPalmsBinding? = null
     private val binding get() = _binding!!
     val adapter = PalmAdapter()
@@ -45,7 +45,7 @@ class PalmsFragment : Fragment(), PalmAdapter.OnClickSensorListener  {
     }
 
     companion object {
-        fun newInstance() = PalmsFragment()
+        fun newInstance(filer: String) = PalmsFragment(filer)
     }
 
     override fun openInfoSensor(id: String) {

@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="@+id/constraintLayout3">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView3"
+            android:id="@+id/warningsCard"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="20dp"
@@ -78,6 +78,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/dangerCard"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="20dp"
@@ -125,7 +126,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
+            android:id="@+id/totalCard"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="20dp"
@@ -175,7 +176,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
+            android:id="@+id/healthyCard"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="20dp"

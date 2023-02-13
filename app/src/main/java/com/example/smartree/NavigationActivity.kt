@@ -11,6 +11,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.example.smartree.databinding.ActivityNavigationBinding
+import com.example.smartree.databinding.FragmentPalmsBinding
 import com.facebook.login.LoginManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -22,7 +23,7 @@ enum class ProviderType {
     FACEBOOK
 }
 
-class NavigationActivity : AppCompatActivity() {
+class NavigationActivity : AppCompatActivity(), OnCardListener {
 
     private lateinit var sensorsFragment: SensorsFragment
     private lateinit var palmsFragment: PalmsFragment
@@ -36,9 +37,9 @@ class NavigationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        homeFragment = HomeFragment.newInstance()
+        homeFragment = HomeFragment.newInstance(this)
         sensorsFragment = SensorsFragment.newInstance()
-        palmsFragment = PalmsFragment.newInstance()
+        palmsFragment = PalmsFragment.newInstance("all")
 
         val bundle = intent.extras
         val email = bundle?.getString("email")
@@ -65,7 +66,10 @@ class NavigationActivity : AppCompatActivity() {
 
                 R.id.homemenu -> { showFragment(homeFragment) }
                 R.id.sensorsmenu -> { showFragment(sensorsFragment) }
-                R.id.treemenu -> { showFragment(palmsFragment) }
+                R.id.treemenu -> {
+                    palmsFragment = PalmsFragment.newInstance("all")
+                    showFragment(palmsFragment)
+                }
 
             }
             true
@@ -91,5 +95,10 @@ class NavigationActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+    }
+
+    override fun showPalms(state: String) {
+        palmsFragment = PalmsFragment.newInstance(state)
+        showFragment(palmsFragment)
     }
 }
