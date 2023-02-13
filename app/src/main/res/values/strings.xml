@@ -50,6 +50,8 @@
     <string name="ok_guardar">Cambios realizados con exito</string>
     <string name="departamento">Departamento</string>
     <string name="apellidos">Apellidos</string>
+    <string name="siguiente">Siguiente</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
