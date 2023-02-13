@@ -19,8 +19,4 @@
         android:id="@+id/treemenu"
         android:icon="@drawable/tree"
         android:title="Arboles" />
-    <item
-        android:id="@+id/mapmenu"
-        android:icon="@drawable/map"
-        android:title="cosecha" />
 </menu>

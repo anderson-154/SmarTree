@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartree.model.Palm
-import com.example.smartree.model.Sensor
 
 class PalmAdapter : RecyclerView.Adapter<PalmViewHolder>() {
 
@@ -40,6 +39,6 @@ class PalmAdapter : RecyclerView.Adapter<PalmViewHolder>() {
     }
 
     interface OnClickSensorListener{
-        fun openInfoSensor(id: String)
+        fun openInfoPalm(id: String)
     }
 }

@@ -6,7 +6,6 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartree.model.Palm
-import com.example.smartree.model.Sensor
 
 class PalmViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
 

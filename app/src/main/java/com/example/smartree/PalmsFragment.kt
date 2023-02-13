@@ -9,12 +9,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartree.databinding.FragmentPalmsBinding
 import com.example.smartree.model.Palm
-import com.example.smartree.model.Sensor
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
-class PalmsFragment(filer:String) : Fragment(), PalmAdapter.OnClickSensorListener  {
+class PalmsFragment(filer:String) : Fragment(), PalmAdapter.OnClickSensorListener {
     private var _binding: FragmentPalmsBinding? = null
     private val binding get() = _binding!!
     val adapter = PalmAdapter()
@@ -24,18 +23,22 @@ class PalmsFragment(filer:String) : Fragment(), PalmAdapter.OnClickSensorListene
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentPalmsBinding.inflate(inflater, container, false)
-        Util.initRecycler(binding.palmsRecyclerView, requireActivity(), LinearLayoutManager.VERTICAL,).adapter = adapter
+        Util.initRecycler(
+            binding.palmsRecyclerView,
+            requireActivity(),
+            LinearLayoutManager.VERTICAL,
+        ).adapter = adapter
         adapter.clear()
-        loadSensors()
+        loadPalms()
 
         adapter.onClickPalmListener = this
         binding.addPalmFlotatingButton.setOnClickListener {
-            startActivity(Intent(activity,PalmRegistrationActivity::class.java))
+            startActivity(Intent(activity, PalmRegistrationActivity::class.java))
         }
         return binding.root
     }
 
-    private fun loadSensors() {
+    private fun loadPalms() {
         Firebase.firestore.collection("palms").get()
             .addOnCompleteListener { palm ->
                 for (doc in palm.result!!) {
@@ -48,7 +51,7 @@ class PalmsFragment(filer:String) : Fragment(), PalmAdapter.OnClickSensorListene
         fun newInstance(filer: String) = PalmsFragment(filer)
     }
 
-    override fun openInfoSensor(id: String) {
+    override fun openInfoPalm(id: String) {
         TODO("Not yet implemented")
     }
 

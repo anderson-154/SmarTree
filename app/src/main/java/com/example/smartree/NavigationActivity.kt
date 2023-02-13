@@ -1,21 +1,17 @@
 package com.example.smartree
 
 
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.example.smartree.databinding.ActivityNavigationBinding
-import com.example.smartree.databinding.FragmentPalmsBinding
 import com.facebook.login.LoginManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_navigation.*
 
 enum class ProviderType {
     BASIC,
@@ -45,7 +41,7 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
         val email = bundle?.getString("email")
         val provider = bundle?.getString("provider")
 
-        val prefs: SharedPreferences.Editor = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+        val prefs: SharedPreferences.Editor = getSharedPreferences(getString(R.string.prefs_file), MODE_PRIVATE).edit()
         prefs.putString("email", email)
         prefs.putString("provider", provider)
         prefs.apply()
@@ -87,7 +83,7 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
 
     fun onLogout(result: ActivityResult){
         if(result.resultCode== RESULT_OK){
-            val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+            val prefs = getSharedPreferences(getString(R.string.prefs_file), MODE_PRIVATE).edit()
             prefs.clear()
             prefs.apply()
 
