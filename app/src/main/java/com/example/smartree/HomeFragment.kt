@@ -38,6 +38,11 @@ class HomeFragment(onListener: OnCardListener) : Fragment() {
         binding.healthyCard.setOnClickListener{ listener.showPalms("healthy") }
         binding.warningsCard.setOnClickListener{ listener.showPalms("warnings") }
         binding.dangerCard.setOnClickListener{ listener.showPalms("dangers") }
+
+        binding.refreshLayout.setOnRefreshListener {
+            loadResults()
+            binding.refreshLayout.isRefreshing = false
+        }
     }
 
     private fun loadResults(){
