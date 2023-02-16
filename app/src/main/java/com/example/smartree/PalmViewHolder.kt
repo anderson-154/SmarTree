@@ -23,7 +23,7 @@ class PalmViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
     init {
         constraintLayout.setOnClickListener {
             var id = palm!!.id
-            onclickPalmListener.openInfoSensor(id)
+            onclickPalmListener.openInfoPalm(id)
         }
     }
 

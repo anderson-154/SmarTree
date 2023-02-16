@@ -24,44 +24,42 @@ class EditProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        lifecycleScope.launch(Dispatchers.IO) {
-            val user = Firebase.firestore
-                .collection("users").document(Firebase.auth.currentUser!!.uid).get().await()
-                .toObject(User::class.java)!!
-
-            binding.nameEditProfileET.setText(user.name)
-            binding.phoneEditProfileET.setText(user.phone)
-            binding.houseCampEditProfileET.setText(user.dpto)
-        }
+            Firebase.firestore
+                .collection("users").document(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
+                    val user = it.toObject(User::class.java)!!
+                    binding.nameEditProfileET.setText(user.name)
+                    binding.phoneEditProfileET.setText(user.phone)
+                    binding.houseCampEditProfileET.setText(user.dpto)
+                }
 
         binding.cameraButton.setOnClickListener {
 
         }
 
         binding.saveBtn.setOnClickListener {
-            lifecycleScope.launch(Dispatchers.IO) {
-                val user = Firebase.firestore
-                    .collection("users").document(Firebase.auth.currentUser!!.uid).get().await()
-                    .toObject(User::class.java)!!
-
-                val uid = Firebase.auth.currentUser?.uid
-                Log.e(
-                    "<--<<<", "${uid}"
-                )
-                uid?.let {
-                    val newUser = User(
-                        it,
-                        binding.nameEditProfileET.text.toString(),
-                        binding.houseCampEditProfileET.text.toString(),
-                        user.document,
-                        user.email,
-                        binding.phoneEditProfileET.text.toString(),
-                        //user.uriProfile
-                    )
-                    Firebase.firestore.collection("users").document(it).set(newUser)
+            Firebase.firestore
+                .collection("users").document(Firebase.auth.currentUser!!.uid).get()
+                .addOnSuccessListener {
+                    val user = it.toObject(User::class.java)!!
+                    val uid = Firebase.auth.currentUser?.uid
+                    uid?.let {
+                        val newUser = User(
+                            it,
+                            user.email,
+                            binding.houseCampEditProfileET.text.toString(),
+                            user.document,
+                            binding.nameEditProfileET.text.toString(),
+                            binding.phoneEditProfileET.text.toString(),
+                            //user.uriProfile
+                        )
+                        Firebase.firestore.collection("users").document(it).set(newUser)
+                    }
+                    startActivity(Intent(this, ProfileActivity::class.java))
+                    finish()
                 }
+
             }
-        }
+
 
         binding.backBtnEditProfile.setOnClickListener {
             startActivity(Intent(this,ProfileActivity::class.java))
