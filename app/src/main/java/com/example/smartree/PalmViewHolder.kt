@@ -30,8 +30,9 @@ class PalmViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
 
     fun bindPalm(palmBind: Palm) {
         palm = palmBind
+        val coordinates ="lat: "+palmBind.lat+" lon: "+palmBind.lon
         palmName.setText(palmBind.name)
-        palmCoordinates.setText(palmBind.coordinates)
+        palmCoordinates.setText(coordinates)
         palmType.setText("Tipo: "+palmBind.type)
 
     }

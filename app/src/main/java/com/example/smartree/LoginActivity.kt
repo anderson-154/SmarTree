@@ -39,13 +39,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        //Permissions
-        requestPermissions(arrayOf(
-            android.Manifest.permission.CAMERA,
-            android.Manifest.permission.READ_EXTERNAL_STORAGE,
-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            ,1)
-
         //init
         setup()
     }
@@ -192,23 +185,6 @@ class LoginActivity : AppCompatActivity() {
         }catch (e:ApiException) {
             e.printStackTrace()
             showAlert()
-        }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 1) {
-            var allGrant = true
-            for (result in grantResults) {
-                if (result == PackageManager.PERMISSION_DENIED) allGrant = false
-            }
-            if(!allGrant){
-                Toast.makeText(this,"Por favor acepte los permisos", Toast.LENGTH_SHORT).show()
-            }
         }
     }
 

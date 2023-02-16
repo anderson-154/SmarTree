@@ -30,8 +30,8 @@ class MapsFragment(private val isOnlySelector:Boolean) : Fragment() {
     private lateinit var manager:LocationManager
 
     //Vars on selector Mode
-    var eventMarker:Marker?=null
-    private var idMarker:String = "user:${Firebase.auth.currentUser?.uid}event:${UUID.randomUUID()}"
+    private var palmMarker:Marker?=null
+    private var idMarker:String = "user:${Firebase.auth.currentUser?.uid}palm:${UUID.randomUUID()}"
 
     //Listener on live map mode
     lateinit var listener:OnClickMarkerListener
@@ -53,7 +53,7 @@ class MapsFragment(private val isOnlySelector:Boolean) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+        val mapFragment = childFragmentManager.findFragmentById(R.id.mapFragment) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
     }
 
@@ -64,10 +64,10 @@ class MapsFragment(private val isOnlySelector:Boolean) : Fragment() {
         //Click on map--------------------------------------------------------------------------
         mMap.setOnMapClickListener { pos->
             if(isOnlySelector){
-                if(eventMarker!=null){
-                    eventMarker?.position = pos
+                if(palmMarker!=null){
+                    palmMarker?.position = pos
                 }else{
-                    eventMarker = putMarker(pos.latitude, pos.longitude)
+                    palmMarker = putMarker(pos.latitude, pos.longitude)
                 }
             }else{
                 listener.hidePalmInfo()
@@ -83,9 +83,10 @@ class MapsFragment(private val isOnlySelector:Boolean) : Fragment() {
         }
 
         setInitialPos()
+        loadPalms()
     }
 
-    fun loadPalms(){
+    private fun loadPalms(){
         Firebase.firestore.collection("palms").whereEqualTo("uid",Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
             for(task in it){
                 val palm = task.toObject(Palm::class.java)
