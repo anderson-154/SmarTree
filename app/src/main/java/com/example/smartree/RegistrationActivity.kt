@@ -56,6 +56,11 @@ class RegistrationActivity : AppCompatActivity() {
             finish()
         }
 
+        binding.signInTxt.setOnClickListener{
+            startActivity(Intent(this,LoginActivity::class.java))
+            finish()
+        }
+
     }
 
     private fun validate(email:String, password1:String, password2:String): Boolean {
