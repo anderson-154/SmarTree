@@ -35,9 +35,9 @@ class HomeFragment(onListener: OnCardListener) : Fragment() {
 
     private fun setup(){
         binding.totalCard.setOnClickListener{ listener.showPalms("all") }
-        binding.healthyCard.setOnClickListener{ listener.showPalms("healthy") }
-        binding.warningsCard.setOnClickListener{ listener.showPalms("warnings") }
-        binding.dangerCard.setOnClickListener{ listener.showPalms("dangers") }
+        binding.healthyCard.setOnClickListener{ listener.showPalms("Saludable") }
+        binding.warningsCard.setOnClickListener{ listener.showPalms("Sospechoso") }
+        binding.dangerCard.setOnClickListener{ listener.showPalms("Infectado") }
 
         binding.refreshLayout.setOnRefreshListener {
             loadResults()
@@ -75,6 +75,6 @@ class HomeFragment(onListener: OnCardListener) : Fragment() {
     }
 }
 
-public interface OnCardListener{
-    public fun showPalms(state:String)
+interface OnCardListener{
+    fun showPalms(state:String)
 }

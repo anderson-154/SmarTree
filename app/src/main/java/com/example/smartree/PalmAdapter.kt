@@ -4,19 +4,22 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartree.model.Palm
-import com.example.smartree.model.Sensor
 
 class PalmAdapter : RecyclerView.Adapter<PalmViewHolder>() {
 
     private val palms = ArrayList<Palm>()
-    lateinit var onClickPalmListener: PalmsFragment
+    lateinit var palmListener: OnClickPalmListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PalmViewHolder {
       val inflater = LayoutInflater.from(parent.context)
       val view = inflater.inflate(R.layout.palm_row,parent,false)
       val palmViewHolder = PalmViewHolder(view)
-      palmViewHolder.onclickPalmListener = onClickPalmListener
+      palmViewHolder.listener = palmListener
       return palmViewHolder
+    }
+
+    fun setListener(palmListener: OnClickPalmListener){
+        this.palmListener = palmListener
     }
 
     override fun onBindViewHolder(holder: PalmViewHolder, position: Int) {
@@ -39,7 +42,7 @@ class PalmAdapter : RecyclerView.Adapter<PalmViewHolder>() {
         notifyItemInserted(palms.size-1)
     }
 
-    interface OnClickSensorListener{
-        fun openInfoSensor(id: String)
+    interface OnClickPalmListener{
+        fun openPalmInfo(id: String)
     }
 }

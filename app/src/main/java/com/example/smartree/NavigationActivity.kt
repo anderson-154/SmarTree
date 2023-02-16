@@ -45,7 +45,7 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
 
         homeFragment = HomeFragment.newInstance(this)
         sensorsFragment = SensorsFragment.newInstance()
-        palmsFragment = PalmsFragment.newInstance("all")
+        palmsFragment = PalmsFragment.newInstance()
         liveMapFragment = LiveMapFragment.newInstance()
 
         val bundle = intent.extras
@@ -59,7 +59,7 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
 
         setup()
         showFragment(homeFragment)
-        askPermissions()
+        if(!haveLocationPermissions) askPermissions()
     }
 
     private fun showFragment (fragment : Fragment){
@@ -76,10 +76,9 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
                 R.id.sensorsmenu -> { showFragment(sensorsFragment) }
                 R.id.mapmenu -> { showFragment(liveMapFragment) }
                 R.id.treemenu -> {
-                    palmsFragment = PalmsFragment.newInstance("all")
+                    palmsFragment.setFilter("all")
                     showFragment(palmsFragment)
                 }
-
             }
             true
         }
@@ -88,6 +87,9 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
             val intent = Intent(this, ProfileActivity::class.java)
             launcher.launch(intent)
         }
+
+        haveLocationPermissions = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+            .getBoolean("permissions", false)
     }
 
     fun onLogout(result: ActivityResult){
@@ -107,7 +109,7 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
     }
 
     override fun showPalms(state: String) {
-        palmsFragment = PalmsFragment.newInstance(state)
+        palmsFragment.setFilter(state)
         showFragment(palmsFragment)
     }
 
@@ -122,7 +124,9 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
             haveLocationPermissions = haveLocationPermissions && (result!=-1)
         }
 
-        if(!haveLocationPermissions) showAlert("Si no acepta los permisos la aplicación puede fallar")
+        val prefs: SharedPreferences.Editor = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+        prefs.putBoolean("permissions", haveLocationPermissions)
+        prefs.apply()
     }
 
     private fun askPermissions(){
@@ -134,14 +138,5 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
             android.Manifest.permission.ACCESS_COARSE_LOCATION,
             android.Manifest.permission.ACCESS_FINE_LOCATION)
             ,1)
-    }
-
-    private fun showAlert(msg:String="Se ha producido un error autenticando al usuario"){
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("SmarTree")
-        builder.setMessage(msg)
-        builder.setPositiveButton("Aceptar", null)
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
     }
 }

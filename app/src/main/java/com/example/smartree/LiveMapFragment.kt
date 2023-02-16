@@ -68,13 +68,13 @@ class LiveMapFragment : Fragment (), MapsFragment.OnClickMarkerListener {
             db.collection("sensors").document(palm.sensorID).get().addOnSuccessListener {
                 val sensor = it.toObject(Sensor::class.java)!!
                 binding.statePinTV.text = sensor.state
-                if(sensor.state=="Sano"){
+                if(sensor.state=="Saludable"){
                     binding.statePinTV.setTextColor(resources.getColor(R.color.dark_green))
                     binding.iconPin.setImageResource(R.drawable.health)
                 }else if(sensor.state=="Sospechoso"){
-                    binding.statePinTV.setTextColor(resources.getColor(R.color.dark_orange))
+                    binding.statePinTV.setTextColor(resources.getColor(R.color.light_orange))
                     binding.iconPin.setImageResource(R.drawable.warning)
-                }else{
+                }else if(sensor.state=="Infectado"){
                     binding.statePinTV.setTextColor(resources.getColor(R.color.red))
                     binding.iconPin.setImageResource(R.drawable.bug)
                 }

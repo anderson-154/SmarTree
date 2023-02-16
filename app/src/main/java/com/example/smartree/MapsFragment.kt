@@ -110,12 +110,12 @@ class MapsFragment(private val isOnlySelector:Boolean) : Fragment() {
 
     @SuppressLint("MissingPermission")
     private fun setInitialPos(){
-        var pos = LatLng(3.3, -73.0)
+        var pos = LatLng(3.817998, -77.001362)
         val gsc = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER )
         if(gsc!=null){
             pos = LatLng(gsc.latitude, gsc.longitude)
         }
-        mMap.animateCamera(CameraUpdateFactory.newLatLng(pos))
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos,15f))
     }
 
     interface OnClickMarkerListener{
