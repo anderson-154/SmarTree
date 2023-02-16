@@ -20,8 +20,6 @@ class SensorViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
 
     //UI controllers
     var sensorName: TextView = itemView.findViewById(R.id.sensorNameRow)
-    var sensorPlace: TextView = itemView.findViewById(R.id.placeSensorRow)
-    var sensorCoordinates: TextView = itemView.findViewById(R.id.coordinatesSensorRow)
     var sensorState: TextView = itemView.findViewById(R.id.stateSensorRow)
     var constraintLayout: ConstraintLayout = itemView.findViewById(R.id.constraintLayoutRow)
     var sensorType: TextView = itemView.findViewById(R.id.typeSensorText)
@@ -37,8 +35,6 @@ class SensorViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
     fun bindSensor(sensorBind: Sensor) {
         sensor = sensorBind
         sensorName.setText(sensorBind.name)
-        sensorPlace.setText("Ubicación: "+sensorBind.place)
-        sensorCoordinates.setText(sensorBind.coordinates)
         sensorType.setText("Tipo: "+sensorBind.type)
         checkStates(sensorBind.state)
     }

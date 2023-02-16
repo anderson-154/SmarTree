@@ -2,6 +2,7 @@ package com.example.smartree
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -54,6 +55,7 @@ class LiveMapFragment : Fragment (), MapsFragment.OnClickMarkerListener {
     }
 
     override fun showPalmInfo(idMarker: String) {
+
         //Get Event by Id
         db.collection("palms").document(idMarker).get().addOnSuccessListener { document ->
 

@@ -6,7 +6,7 @@ data class Palm (
     var name: String="",
     var address: String="",
     var type: String="",
-    val sensorID: String="",
+    var sensorID: String="",
     var lat: Double=0.0,
     var lon: Double=0.0,
 )

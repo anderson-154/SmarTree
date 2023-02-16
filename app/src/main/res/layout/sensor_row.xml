@@ -43,11 +43,10 @@
                 android:id="@+id/coordinatesSensorRow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
                 android:fontFamily="@font/poppins"
                 android:text="TextView"
-                app:layout_constraintBottom_toBottomOf="@+id/placeSensorRow"
-                app:layout_constraintStart_toEndOf="@+id/placeSensorRow" />
+                tools:layout_editor_absoluteX="72dp"
+                tools:layout_editor_absoluteY="48dp" />
 
             <TextView
                 android:id="@+id/sensorNameRow"
@@ -66,8 +65,7 @@
                 android:layout_height="wrap_content"
                 android:text="Estado: "
                 android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@+id/placeSensorRow"
-                app:layout_constraintTop_toBottomOf="@+id/placeSensorRow" />
+                tools:layout_editor_absoluteY="72dp" />
 
             <TextView
                 android:id="@+id/typeSensorText"
@@ -77,15 +75,6 @@
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="@+id/sensorNameRow"
                 app:layout_constraintTop_toBottomOf="@+id/sensorNameRow" />
-
-            <TextView
-                android:id="@+id/placeSensorRow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:text="TextView"
-                app:layout_constraintStart_toStartOf="@+id/typeSensorText"
-                app:layout_constraintTop_toBottomOf="@+id/typeSensorText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
