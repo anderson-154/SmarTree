@@ -31,7 +31,7 @@ class MapsFragment(private val isOnlySelector:Boolean) : Fragment() {
     private lateinit var manager:LocationManager
 
     //Vars on selector Mode
-    private var palmMarker:Marker?=null
+    var palmMarker:Marker?=null
     private var idMarker:String = "user:${Firebase.auth.currentUser?.uid}palm:${UUID.randomUUID()}"
 
     //Listener on live map mode

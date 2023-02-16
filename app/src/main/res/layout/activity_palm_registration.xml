@@ -179,13 +179,13 @@
         app:layout_constraintTop_toTopOf="@+id/button" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout6"
+        android:id="@+id/locationBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:background="@drawable/background_btn"
-        app:layout_constraintBottom_toBottomOf="@+id/spinnerType"
         app:layout_constraintStart_toStartOf="@+id/sizePalmETLayout"
-        app:layout_constraintTop_toTopOf="@+id/spinnerType">
+        app:layout_constraintTop_toBottomOf="@+id/sizePalmETLayout">
 
         <ImageView
             android:id="@+id/imageView12"
@@ -208,7 +208,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/background_btn"
         app:layout_constraintBottom_toBottomOf="@+id/spinner3"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout6"
+        app:layout_constraintStart_toStartOf="@+id/locationBtn"
         app:layout_constraintTop_toTopOf="@+id/spinner3">
 
         <ImageView
@@ -227,26 +227,29 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Spinner
-        android:id="@+id/spinnerType"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/dark_green"
-        android:contentDescription="@string/ubication"
-        app:layout_constraintEnd_toEndOf="@+id/sizePalmETLayout"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout6"
-        app:layout_constraintTop_toBottomOf="@+id/sizePalmETLayout" />
-
-    <Spinner
         android:id="@+id/spinner3"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="36dp"
         android:backgroundTint="@color/dark_green"
-        app:layout_constraintEnd_toEndOf="@+id/spinnerType"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout7"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerType" />
+        app:layout_constraintTop_toBottomOf="@+id/sizePalmETLayout" />
+
+    <TextView
+        android:id="@+id/coordinatesTV"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:gravity="center"
+        android:text="Selecciona las coordenadas"
+        android:textAlignment="gravity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/locationBtn"
+        app:layout_constraintTop_toBottomOf="@+id/sizePalmETLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
