@@ -1,4 +1,4 @@
-package com.example.coffetec.sensors
+package com.example.smartree
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -11,9 +11,6 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
-import com.example.smartree.HomeFragment
-import com.example.smartree.R
-import com.example.smartree.Sensor
 import com.example.smartree.databinding.ActivitySensorRegistrationBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase

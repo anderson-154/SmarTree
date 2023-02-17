@@ -62,6 +62,10 @@
             android:exported="false">
         </activity>
         <activity
+            android:name=".InfoSensorActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>

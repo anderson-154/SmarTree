@@ -26,7 +26,7 @@ class InfoSensorActivity : AppCompatActivity() {
 
         binding.deleteSensorButton.setOnClickListener {
             Firebase.firestore.collection("sensors").document(sensorId).delete()
-            val intent = Intent(this, HomeFragment::class.java).apply{
+            val intent = Intent(this, NavigationActivity::class.java).apply{
                 putExtra("resetSensors", "true")
             }
             startActivity(intent)

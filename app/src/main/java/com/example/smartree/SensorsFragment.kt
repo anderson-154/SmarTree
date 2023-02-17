@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.coffetec.sensors.SensorRegistrationActivity
 import com.example.smartree.databinding.FragmentSensorsBinding
 import com.example.smartree.model.Sensor
 import com.google.firebase.firestore.ktx.firestore
