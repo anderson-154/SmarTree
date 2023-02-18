@@ -3,7 +3,9 @@ package com.example.smartree
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.R
 import androidx.appcompat.app.AlertDialog
 import com.example.smartree.databinding.ActivityRegistrationAfterBinding
 import com.example.smartree.model.Statistics
@@ -22,22 +24,71 @@ class RegistrationAfterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        var types = ArrayList<String>()
+        types.add("Tipo de documento")
+        types.add("C.C")
+        types.add("PASAPORTE")
+
+
+        var spinnerTypeDocAdapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,types)
+
+        binding.spinnerTipoDoc.setAdapter(spinnerTypeDocAdapter)
+
+        var dptos = ArrayList<String>()
+        dptos.add("Departamento")
+        dptos.add("Amazonas")
+        dptos.add("Antioquia")
+        dptos.add("Arauca")
+        dptos.add("Atlántico")
+        dptos.add("Bolívar")
+        dptos.add("Boyacá")
+        dptos.add("Caldas")
+        dptos.add("Caquetá")
+        dptos.add("Casanare")
+        dptos.add("Cauca")
+        dptos.add("Cesar")
+        dptos.add("Chocó")
+        dptos.add("Córdoba")
+        dptos.add("Cundinamarca")
+        dptos.add("Guainía")
+        dptos.add("Guaviare")
+        dptos.add("Huila")
+        dptos.add("La Guajira")
+        dptos.add("Magdalena")
+        dptos.add("Meta")
+        dptos.add("Nariño")
+        dptos.add("Norte de Santander")
+        dptos.add("Putumayo")
+        dptos.add("Quindío")
+        dptos.add("Risaralda")
+        dptos.add("Santander")
+        dptos.add("Sucre")
+        dptos.add("Tolima")
+        dptos.add("Valle del Cauca")
+        dptos.add("Vaupés")
+        dptos.add("Vichada")
+
+        var spinnerDptosAdapter = ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,dptos)
+
+        binding.spinnerDpto.setAdapter(spinnerDptosAdapter)
+
         binding.finishBtn.setOnClickListener {
 
             val uid = Firebase.auth.currentUser?.uid.toString()
             val email = Firebase.auth.currentUser?.email.toString()
-            val type = binding.tipoET.editText!!.text.toString()
+            val type = binding.spinnerTipoDoc.selectedItem.toString()
             val document = binding.documentoET.editText!!.text.toString()
             val name = binding.nameET.editText!!.text.toString()
+            val lastName = binding.lastNameET.editText!!.text.toString()
             val phone = binding.phoneET.editText!!.text.toString()
             val address = binding.addressET.editText!!.text.toString()
             val city = binding.cityET.editText!!.text.toString()
-            val dpto = binding.dptoET.editText!!.text.toString()
+            val dpto = binding.spinnerDpto.selectedItem.toString()
 
             //Check if are there empty fields
-            if(validate(listOf(type, document, name, phone, address, city, dpto))){
+            if((validate(listOf(document, name,lastName, phone, address, city))) && !(type.equals("Tipo de documento") && (dpto.equals("Departamento")))){
 
-                val user = User(uid, email, type, document, name, phone, address, city, dpto);
+                val user = User(uid, email, type, document, name, lastName,phone, address, city, dpto);
                 registerUserData(user)
 
             }else{

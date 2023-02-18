@@ -20,93 +20,93 @@
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-110dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center_vertical"
-        android:text="@string/nombre"
+        android:text="@string/nombres1"
         android:textColor="@color/dark_green"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:flow_verticalAlign="center"
-        app:layout_constraintBottom_toBottomOf="@+id/nameEditProfileET"
         app:layout_constraintEnd_toStartOf="@+id/nameEditProfileET"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imgProfile"
         app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
 
     <EditText
         android:id="@+id/nameEditProfileET"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="72dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="-110dp"
         android:background="@drawable/background_input"
         android:minHeight="48dp"
         android:paddingStart="5dp"
-        android:textColor="@color/brown"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/dark_orange"
+        app:layout_constraintEnd_toEndOf="@+id/imgProfile"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/imgProfile"
+        app:layout_constraintTop_toTopOf="@+id/textView15"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/poppins_bold"
-        android:gravity="center_vertical"
-        android:text="@string/finca1"
-        android:textAlignment="textStart"
-        android:textColor="@color/dark_green"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/houseCampEditProfileET"
-        app:layout_constraintEnd_toStartOf="@+id/houseCampEditProfileET"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/textView17"
-        app:layout_constraintTop_toTopOf="@+id/houseCampEditProfileET" />
-
     <EditText
-        android:id="@+id/houseCampEditProfileET"
+        android:id="@+id/phoneEditProfileET"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
         android:background="@drawable/background_input"
         android:minHeight="48dp"
         android:paddingStart="5dp"
-        android:textColor="@color/brown"
-        app:layout_constraintEnd_toEndOf="@+id/phoneEditProfileET"
+        android:textColor="@color/dark_orange"
+        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintEnd_toEndOf="@+id/lastNameEditProfileET"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@+id/textView9"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/cityEditProfileET"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/background_input"
+        android:minHeight="48dp"
+        android:paddingStart="5dp"
+        android:textColor="@color/dark_orange"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerDptoEditProfile"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/phoneEditProfileET"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center_vertical"
-        android:text="@string/tel1"
+        android:text="@string/apellidos1"
         android:textColor="@color/dark_green"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/phoneEditProfileET"
-        app:layout_constraintEnd_toStartOf="@+id/phoneEditProfileET"
+        app:layout_constraintEnd_toStartOf="@+id/lastNameEditProfileET"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="@+id/textView15"
-        app:layout_constraintTop_toTopOf="@+id/phoneEditProfileET" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="220dp"
         android:background="@drawable/background_inferior"
         android:foregroundGravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneEditProfileET">
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/saveBtn"
@@ -123,18 +123,19 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
-        android:id="@+id/phoneEditProfileET"
+        android:id="@+id/lastNameEditProfileET"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
         android:background="@drawable/background_input"
         android:minHeight="48dp"
         android:paddingStart="5dp"
-        android:textColor="@color/brown"
+        android:textColor="@color/dark_orange"
+        app:layout_constraintBottom_toBottomOf="@+id/textView17"
         app:layout_constraintEnd_toEndOf="@+id/nameEditProfileET"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/nameEditProfileET"
+        app:layout_constraintTop_toTopOf="@+id/textView17"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -169,5 +170,55 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/tel1"
+        android:textColor="@color/dark_green"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/departamento1"
+        android:textColor="@color/dark_green"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/vereda"
+        android:textColor="@color/dark_green"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/cityEditProfileET"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <Spinner
+        android:id="@+id/spinnerDptoEditProfile"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@color/dark_green"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="@+id/phoneEditProfileET"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

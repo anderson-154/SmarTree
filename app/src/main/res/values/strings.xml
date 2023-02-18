@@ -10,12 +10,15 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <!--Strings profile -->
-    <string name="nombre">Nombre:</string>
+    <string name="nombres1">Nombre:</string>
     <string name="cedula">Cedula:</string>
     <string name="tel1">Telefono:</string>
     <string name="finca1">Finca:</string>
     <string name="correo1">Correo:</string>
-    <string name="nombre_com">Nombre completo</string>
+    <string name="departamento1">Departamento:</string>
+    <string name="vereda">Municipio/vereda:</string>
+    <string name="apellidos1">Apellidos:</string>
+    <string name="nombres">Nombres</string>
     <string name="finca">Finca</string>
     <string name="tipo">Tipo de documento</string>
     <string name="documento">Documento</string>
