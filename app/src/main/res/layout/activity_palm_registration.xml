@@ -184,14 +184,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:background="@drawable/background_btn"
-<<<<<<< HEAD
-        app:layout_constraintStart_toStartOf="@+id/sizePalmETLayout"
-        app:layout_constraintTop_toBottomOf="@+id/sizePalmETLayout">
-=======
         app:layout_constraintBottom_toBottomOf="@+id/sensorTypeSpinner"
         app:layout_constraintStart_toStartOf="@+id/sizePalmETLayout"
         app:layout_constraintTop_toTopOf="@+id/sensorTypeSpinner">
->>>>>>> feature_profile
 
         <ImageView
             android:id="@+id/imageView12"
