@@ -55,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
                         //Comprobar si el usuario ha completado el registro
                         Firebase.firestore.collection("users").document(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
                             val user = it.toObject(User::class.java)!!
-                            if(user.name!=""){
+                            if(user.names!=""){
                                 showHome(email, ProviderType.BASIC)
                             }else{
                                 showForm(email, ProviderType.BASIC)
@@ -172,7 +172,7 @@ class LoginActivity : AppCompatActivity() {
                         }
 
                         //Comprobar si el usuario a completado el registro
-                        if(user.name!=""){
+                        if(user.names!=""){
                             showHome(account.email?:"", ProviderType.GOOGLE)
                         }else{
                             showForm(account.email?:"", ProviderType.GOOGLE)

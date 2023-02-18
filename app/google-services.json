@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "492842295671-prgj6c7skqn9v46vlcr4vjkhvo5vn601.apps.googleusercontent.com",
+          "client_id": "492842295671-ctmejtclsu9b1710jmk11jfh83j834ji.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smartree",
+            "certificate_hash": "b96b224db36cc5f17eb3e14fae2064239cf4bd1c"
+          }
+        },
+        {
+          "client_id": "492842295671-m2bv9391d6fv15op5a1ote95fj86eqs0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +35,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "492842295671-prgj6c7skqn9v46vlcr4vjkhvo5vn601.apps.googleusercontent.com",
+              "client_id": "492842295671-m2bv9391d6fv15op5a1ote95fj86eqs0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

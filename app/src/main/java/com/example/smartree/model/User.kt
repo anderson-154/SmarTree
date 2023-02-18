@@ -5,9 +5,11 @@ data class User (
         var email:String="",
         var type:String="",
         var document:String="",
-        var name:String="",
+        var names:String="",
+        var lastName:String="",
         var phone:String="",
         var address:String="",
         var city:String="",
         var dpto:String="",
+        var uriProfile:String =""
 )

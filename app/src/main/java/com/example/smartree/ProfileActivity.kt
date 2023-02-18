@@ -2,19 +2,15 @@ package com.example.smartree
 
 
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.smartree.databinding.ActivityProfileBinding
 import com.example.smartree.model.User
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
+import com.google.firebase.storage.ktx.storage
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -29,19 +25,30 @@ class ProfileActivity : AppCompatActivity() {
             setResult(RESULT_OK)
             finish()
         }
-
-        lifecycleScope.launch(Dispatchers.IO) {
-            val user = Firebase.firestore
-                .collection("users").document(Firebase.auth.currentUser!!.uid).get().await()
-                .toObject(User::class.java)!!
-            binding.nameTxt.text = user.name
-            binding.documentTxt.text = user.document
-            binding.phoneTxt.text = user.phone
-            binding.houseCampTxt.text = user.dpto
-        }
+            Firebase.firestore
+                .collection("users").document(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
+                    val user = it.toObject(User::class.java)!!
+                    binding.nameTxt.text = user.names
+                    binding.lastNameTxt.text = user.lastName
+                    binding.documentTxt.text = user.document
+                    binding.phoneTxt.text = user.phone
+                    binding.dptoTxt.text = user.dpto
+                    binding.cityTxt.text = user.city
+                    binding.emailTxt.text = user.email
+                    if(!user.uriProfile.equals("")){
+                        Firebase.storage.reference.child("users_photos").child(user.uriProfile).downloadUrl.addOnSuccessListener {
+                            Glide.with(binding.imgProfile).load(it).into(binding.imgProfile)
+                        }
+                    }
+                }
 
         binding.backBtnProfile.setOnClickListener {
-            startActivity(Intent(this,HomeFragment::class.java))
+            startActivity(Intent(this,NavigationActivity::class.java))
+            finish()
+        }
+
+        binding.editProfileButton.setOnClickListener {
+            startActivity(Intent(this, EditProfileActivity::class.java))
             finish()
         }
     }

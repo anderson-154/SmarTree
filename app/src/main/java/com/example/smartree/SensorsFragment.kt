@@ -7,13 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.coffetec.sensors.SensorRegistrationActivity
 import com.example.smartree.databinding.FragmentSensorsBinding
 import com.example.smartree.model.Sensor
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
-class SensorsFragment : Fragment(), SensorAdapter.OnClickSensorListener  {
+class SensorsFragment : Fragment(), SensorAdapter.OnClickSensorListener {
     private var _binding: FragmentSensorsBinding? = null
     private val binding get() = _binding!!
     val adapter = SensorAdapter()
@@ -23,13 +24,17 @@ class SensorsFragment : Fragment(), SensorAdapter.OnClickSensorListener  {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSensorsBinding.inflate(inflater, container, false)
-        Util.initRecycler(binding.sensorsRecyclerView, requireActivity(), LinearLayoutManager.VERTICAL,).adapter = adapter
+        Util.initRecycler(
+            binding.sensorsRecyclerView,
+            requireActivity(),
+            LinearLayoutManager.VERTICAL,
+        ).adapter = adapter
         adapter.clear()
         loadSensors()
 
         adapter.onClickSensorListener = this
         binding.addSensorFlotatingButton.setOnClickListener {
-            startActivity(Intent(activity,SensorRegistrationActivity::class.java))
+            startActivity(Intent(activity, SensorRegistrationActivity::class.java))
         }
         return binding.root
     }
@@ -48,7 +53,10 @@ class SensorsFragment : Fragment(), SensorAdapter.OnClickSensorListener  {
     }
 
     override fun openInfoSensor(id: String) {
-        TODO("Not yet implemented")
+        val intent = Intent(activity, InfoSensorActivity::class.java).apply{
+            putExtra("idSensor", id)
+        }
+        startActivity(intent)
     }
 
 }

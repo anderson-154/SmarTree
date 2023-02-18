@@ -1,15 +1,12 @@
 package com.example.smartree
 
-import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartree.model.Sensor
-import java.io.File
 
 
 class SensorViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {

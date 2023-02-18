@@ -34,7 +34,7 @@ class PalmsFragment : Fragment(), PalmAdapter.OnClickPalmListener  {
         loadPalms()
 
         binding.addPalmFlotatingButton.setOnClickListener {
-            startActivity(Intent(activity,PalmRegistrationActivity::class.java))
+            startActivity(Intent(activity, PalmRegistrationActivity::class.java))
         }
         return binding.root
     }

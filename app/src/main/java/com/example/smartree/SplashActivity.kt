@@ -26,7 +26,7 @@ class SplashActivity : AppCompatActivity() {
         if(email!=null && provider!=null){
             Firebase.firestore.collection("users").document(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
                 val user = it.toObject(User::class.java)!!
-                if(user.name!=""){
+                if(user.names!=""){
                     showHome(email, ProviderType.valueOf(provider))
                 }else{
                     showForm(email, ProviderType.valueOf(provider))

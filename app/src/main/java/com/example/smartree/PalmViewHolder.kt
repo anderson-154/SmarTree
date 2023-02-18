@@ -9,8 +9,6 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartree.model.Palm
-import com.example.smartree.model.Sensor
-import org.w3c.dom.Text
 
 class PalmViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
 

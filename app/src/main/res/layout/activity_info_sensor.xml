@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".sensors.InfoSensorActivity">
+
+    <EditText
+        android:id="@+id/idSensorInfoText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/background_input"
+        android:editable="false"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingStart="5dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/textView20"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <EditText
+        android:id="@+id/nameSensorInfoText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_input"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingStart="5dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/idSensorInfoText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/idSensorInfoText"
+        app:layout_constraintTop_toBottomOf="@+id/idSensorInfoText" />
+
+    <EditText
+        android:id="@+id/typeSensorInfoText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_input"
+        android:editable="false"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingStart="5dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/nameSensorInfoText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/nameSensorInfoText"
+        app:layout_constraintTop_toBottomOf="@+id/nameSensorInfoText" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/stateLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/typeSensorInfoText"
+        app:layout_constraintStart_toStartOf="@+id/typeSensorInfoText"
+        app:layout_constraintTop_toBottomOf="@+id/typeSensorInfoText">
+
+        <EditText
+            android:id="@+id/stateSensorText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_input"
+            android:editable="false"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:paddingStart="5dp"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/stateSensorImg"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="20dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/stateSensorText"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_remove_red_eye_24" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Estado:"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/stateSensorText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/stateSensorText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerLayoutInfo"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/back_aux_sensor_header"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_baseline_arrow_back_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Datos del sensor"
+        android:textColor="@color/brown"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/headerLayoutInfo"
+        app:layout_constraintStart_toStartOf="@+id/headerLayoutInfo"
+        app:layout_constraintTop_toBottomOf="@+id/headerLayoutInfo" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="@+id/stateLayout"
+        app:layout_constraintStart_toStartOf="@+id/stateLayout"
+        app:layout_constraintTop_toBottomOf="@+id/stateLayout">
+
+        <Button
+            android:id="@+id/deleteSensorButton"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:background="@drawable/circle_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editInfoSensorButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/editInfoSensorButton"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/editInfoSensorButton"
+            app:layout_constraintStart_toStartOf="@+id/editInfoSensorButton"
+            app:layout_constraintTop_toTopOf="@+id/editInfoSensorButton"
+            app:srcCompat="@drawable/ic_baseline_save_24" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/deleteSensorButton"
+            app:layout_constraintEnd_toEndOf="@+id/deleteSensorButton"
+            app:layout_constraintStart_toStartOf="@+id/deleteSensorButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ubicationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/grey"
+        android:elevation="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+
+        <TextView
+            android:id="@+id/ubicationSensorInfoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:text="Ubicacion:"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/coordinatesSensorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="0,0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ubicationSensorInfoText"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.483" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/background_inferior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="ID:"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/idSensorInfoText"
+        app:layout_constraintStart_toStartOf="@+id/idSensorInfoText"
+        app:layout_constraintTop_toTopOf="@+id/idSensorInfoText" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Nombre: "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/nameSensorInfoText"
+        app:layout_constraintStart_toStartOf="@+id/nameSensorInfoText"
+        app:layout_constraintTop_toTopOf="@+id/nameSensorInfoText" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Tipo:"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/typeSensorInfoText"
+        app:layout_constraintStart_toStartOf="@+id/typeSensorInfoText"
+        app:layout_constraintTop_toTopOf="@+id/typeSensorInfoText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

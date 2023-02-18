@@ -77,7 +77,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/namePalmET"
+            android:id="@+id/nameSensorRegistText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
@@ -168,7 +168,7 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner3" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/registSensorButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_btn"
@@ -184,8 +184,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:background="@drawable/background_btn"
+<<<<<<< HEAD
         app:layout_constraintStart_toStartOf="@+id/sizePalmETLayout"
         app:layout_constraintTop_toBottomOf="@+id/sizePalmETLayout">
+=======
+        app:layout_constraintBottom_toBottomOf="@+id/sensorTypeSpinner"
+        app:layout_constraintStart_toStartOf="@+id/sizePalmETLayout"
+        app:layout_constraintTop_toTopOf="@+id/sensorTypeSpinner">
+>>>>>>> feature_profile
 
         <ImageView
             android:id="@+id/imageView12"
@@ -227,6 +233,18 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Spinner
+        android:id="@+id/sensorTypeSpinner"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/dark_green"
+        android:contentDescription="@string/ubication"
+        app:layout_constraintEnd_toEndOf="@+id/sizePalmETLayout"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout6"
+        app:layout_constraintTop_toBottomOf="@+id/sizePalmETLayout" />
+
+    <Spinner
         android:id="@+id/spinner3"
         android:layout_width="0dp"
         android:layout_height="55dp"
@@ -234,22 +252,8 @@
         android:layout_marginTop="71dp"
         android:layout_marginEnd="36dp"
         android:backgroundTint="@color/dark_green"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sensorTypeSpinner"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout7"
-        app:layout_constraintTop_toBottomOf="@+id/sizePalmETLayout" />
-
-    <TextView
-        android:id="@+id/coordinatesTV"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="36dp"
-        android:gravity="center"
-        android:text="Selecciona las coordenadas"
-        android:textAlignment="gravity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/locationBtn"
-        app:layout_constraintTop_toBottomOf="@+id/sizePalmETLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/sensorTypeSpinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

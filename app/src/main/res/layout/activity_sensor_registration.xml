@@ -80,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/namePalmET"
+            android:id="@+id/nameSensorRegistText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
@@ -98,22 +98,22 @@
         android:background="@drawable/background_btn"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/cancelar"
-        app:layout_constraintStart_toStartOf="@+id/spinnerType"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerType" />
+        app:layout_constraintStart_toStartOf="@+id/sensorTypeSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/sensorTypeSpinner" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/registSensorButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_btn"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/aceptar"
         app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="@+id/spinnerType"
+        app:layout_constraintEnd_toEndOf="@+id/sensorTypeSpinner"
         app:layout_constraintTop_toTopOf="@+id/button" />
 
     <Spinner
-        android:id="@+id/spinnerType"
+        android:id="@+id/sensorTypeSpinner"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginTop="8dp"

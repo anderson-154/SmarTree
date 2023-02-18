@@ -78,6 +78,10 @@
             android:label="@string/title_activity_profile"
             android:theme="@style/Theme.SmarTree.NoActionBar" />
         <activity
+            android:name=".EditProfileActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -111,6 +115,18 @@
         <meta-data
             android:name="com.facebook.sdk.ClientToken"
             android:value="@string/facebook_client_token" />
+
+        <provider
+            android:authorities="com.example.smartree"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths" />
+        </provider>
+
     </application>
 
 </manifest>

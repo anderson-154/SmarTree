@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:contentDescription="@string/departamento">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,32 +33,6 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tipoET"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
-                android:background="@drawable/background_input"
-                android:ems="10"
-                android:hint="@string/tipo"
-                android:minHeight="48dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView8">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#00FFFFFF"
-                    android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:padding="15dp"
-                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/documentoET"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -70,13 +46,13 @@
                 android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tipoET">
+                app:layout_constraintTop_toBottomOf="@+id/spinnerTipoDoc">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#00FFFFFF"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:minHeight="48dp"
                     android:padding="15dp"
                     tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
@@ -92,11 +68,37 @@
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/background_input"
                 android:ems="10"
-                android:hint="@string/nombre_com"
+                android:hint="@string/nombres"
                 android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/documentoET">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00FFFFFF"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:padding="15dp"
+                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lastNameET"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/background_input"
+                android:ems="10"
+                android:hint="@string/apellidos"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameET">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -122,13 +124,13 @@
                 android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nameET">
+                app:layout_constraintTop_toBottomOf="@+id/lastNameET">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#00FFFFFF"
-                    android:inputType="textPersonName"
+                    android:inputType="textPersonName|phone"
                     android:minHeight="48dp"
                     android:padding="15dp"
                     tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
@@ -174,33 +176,7 @@
                 android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addressET">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#00FFFFFF"
-                    android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:padding="15dp"
-                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/dptoET"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
-                android:background="@drawable/background_input"
-                android:ems="10"
-                android:hint="@string/dpto"
-                android:minHeight="48dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cityET">
+                app:layout_constraintTop_toBottomOf="@+id/spinnerDpto">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -234,9 +210,33 @@
                 android:fontFamily="@font/poppins_bold"
                 android:text="@string/finalizar"
                 android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="@+id/dptoET"
-                app:layout_constraintStart_toStartOf="@+id/dptoET"
-                app:layout_constraintTop_toBottomOf="@+id/dptoET" />
+                app:layout_constraintEnd_toEndOf="@+id/spinnerDpto"
+                app:layout_constraintStart_toStartOf="@+id/spinnerDpto"
+                app:layout_constraintTop_toBottomOf="@+id/cityET" />
+
+            <Spinner
+                android:id="@+id/spinnerTipoDoc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/dark_green"
+                android:contentDescription="@string/tipo"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="@+id/documentoET"
+                app:layout_constraintStart_toStartOf="@+id/documentoET"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <Spinner
+                android:id="@+id/spinnerDpto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/dark_green"
+                android:contentDescription="@string/departamento"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="@+id/cityET"
+                app:layout_constraintStart_toStartOf="@+id/cityET"
+                app:layout_constraintTop_toBottomOf="@+id/addressET" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
