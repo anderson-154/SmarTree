@@ -24,9 +24,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgProfile"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:src="@drawable/profile_empty"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.506"
@@ -60,13 +59,13 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/poppins_bold"
             android:text="Perfil"
             android:textAlignment="center"
             android:textColor="@color/dark_orange"
-            android:textSize="34sp"
+            android:textSize="30dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/imgProfile"
             app:layout_constraintStart_toStartOf="@+id/imgProfile"
@@ -126,194 +125,190 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parent2"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/nombres"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
-
-        <TextView
-            android:id="@+id/dptoTxt"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/poppins"
-            android:text="TextView"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView6"
-            app:layout_constraintEnd_toEndOf="@+id/cityTxt"
-            app:layout_constraintStart_toEndOf="@+id/textView6"
-            app:layout_constraintTop_toTopOf="@+id/textView6" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/departamento1"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/apellidos1"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/forgotPasswordTV"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-        <TextView
-            android:id="@+id/forgotPasswordTV"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/documento"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/tel1"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/forgotPasswordTV" />
-
-        <TextView
-            android:id="@+id/nameTxt"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/poppins"
-            android:text="TextView"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView2"
-            app:layout_constraintEnd_toEndOf="@+id/lastNameTxt"
-            app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="@+id/textView2" />
-
-        <TextView
-            android:id="@+id/lastNameTxt"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/poppins"
-            android:text="TextView"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView3"
-            app:layout_constraintEnd_toEndOf="@+id/documentTxt"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toTopOf="@+id/textView3" />
-
-        <TextView
-            android:id="@+id/documentTxt"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/poppins"
-            android:text="TextView"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/forgotPasswordTV"
-            app:layout_constraintEnd_toEndOf="@+id/phoneTxt"
-            app:layout_constraintStart_toEndOf="@+id/forgotPasswordTV"
-            app:layout_constraintTop_toTopOf="@+id/forgotPasswordTV" />
-
-        <TextView
-            android:id="@+id/phoneTxt"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/poppins"
-            android:text="TextView"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView5"
-            app:layout_constraintEnd_toEndOf="@+id/dptoTxt"
-            app:layout_constraintStart_toEndOf="@+id/textView5"
-            app:layout_constraintTop_toTopOf="@+id/textView5" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/vereda"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/cityTxt"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/correo1"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-        <TextView
-            android:id="@+id/cityTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:fontFamily="@font/poppins"
-            android:text="TextView"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toTopOf="@+id/textView4" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgProfile">
 
-        <TextView
-            android:id="@+id/emailTxt"
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/poppins"
-            android:text="TextView"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView7"
-            app:layout_constraintEnd_toEndOf="@+id/cityTxt"
-            app:layout_constraintStart_toEndOf="@+id/textView7"
-            app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/nombres"
+                android:textColor="@color/dark_green"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/parent2"
+                app:layout_constraintTop_toTopOf="@id/parent2" />
+
+            <TextView
+                android:id="@+id/dptoTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/poppins"
+                android:text="TextView"
+                android:textColor="@color/dark_green"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/parent2"
+                app:layout_constraintStart_toEndOf="@+id/textView6"
+                app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/departamento1"
+                android:textColor="@color/dark_green"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/parent2"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/apellidos1"
+                android:textColor="@color/dark_green"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/parent2"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/textView200"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/documento"
+                android:textColor="@color/dark_green"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/parent2"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/tel1"
+                android:textColor="@color/dark_green"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/parent2"
+                app:layout_constraintTop_toBottomOf="@+id/textView200" />
+
+            <TextView
+                android:id="@+id/nameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/poppins"
+                android:text="TextView"
+                android:textColor="@color/dark_green"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/parent2"
+                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="@id/parent2" />
+
+            <TextView
+                android:id="@+id/lastNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/poppins"
+                android:text="TextView"
+                android:textColor="@color/dark_green"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/parent2"
+                app:layout_constraintStart_toEndOf="@+id/textView3"
+                app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/documentTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/poppins"
+                android:text="TextView"
+                android:textColor="@color/dark_green"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/parent2"
+                app:layout_constraintStart_toEndOf="@+id/textView200"
+                app:layout_constraintTop_toTopOf="@+id/textView200" />
+
+            <TextView
+                android:id="@+id/phoneTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/poppins"
+                android:text="TextView"
+                android:textColor="@color/dark_green"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/parent2"
+                app:layout_constraintStart_toEndOf="@+id/textView5"
+                app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/vereda"
+                android:textColor="@color/dark_green"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/parent2"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/correo1"
+                android:textColor="@color/dark_green"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/parent2"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/cityTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/poppins"
+                android:text="TextView"
+                android:textColor="@color/dark_green"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/parent2"
+                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/emailTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/poppins"
+                android:text="TextView"
+                android:textColor="@color/dark_green"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/parent2"
+                app:layout_constraintStart_toEndOf="@+id/textView7"
+                app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
