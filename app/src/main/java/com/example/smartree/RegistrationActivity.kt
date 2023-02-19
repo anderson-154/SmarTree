@@ -1,19 +1,21 @@
 package com.example.smartree
 
-import android.content.Context
+import android.R
 import android.content.Intent
-import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.example.smartree.databinding.ActivityRegistrationBinding
-import com.example.smartree.model.Statistics
 import com.example.smartree.model.User
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+
 
 class RegistrationActivity : AppCompatActivity() {
 
@@ -38,8 +40,20 @@ class RegistrationActivity : AppCompatActivity() {
                     Toast.makeText(this, "Cuenta creada exitosamente", Toast.LENGTH_LONG).show()
                     Firebase.auth.currentUser?.sendEmailVerification()
                     registerUserData()
-                }.addOnFailureListener {
-                    showAlert()
+                }.addOnFailureListener {exception ->
+                    try {
+                        throw exception
+                    } catch (e: FirebaseAuthWeakPasswordException) {
+                        showAlert("Contraseña demasiado debil")
+                    } catch (e: FirebaseAuthUserCollisionException) {
+                        showAlert("Usuario ya existe.")
+                        Firebase.auth.currentUser?.let {
+                            it.sendEmailVerification()
+                            showAlert("El correo de confimación se ha reenviado")
+                        }
+                    } catch (e: Exception) {
+                        showAlert()
+                    }
                 }
             }else{
                 showAlert("Por favor llene todos los campos y asegurese de que los campos coincidan")

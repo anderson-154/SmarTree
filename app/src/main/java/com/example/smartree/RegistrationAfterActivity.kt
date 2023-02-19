@@ -95,12 +95,6 @@ class RegistrationAfterActivity : AppCompatActivity() {
                 showAlert("Por favor llene todos los campos y asegurese de que los campos coincidan")
             }
         }
-
-        binding.backBtn.setOnClickListener {
-            startActivity(Intent(this,LoginActivity::class.java))
-            finish()
-        }
-
     }
 
     private fun validate(data:List<String>): Boolean {

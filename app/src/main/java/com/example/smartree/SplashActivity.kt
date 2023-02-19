@@ -5,7 +5,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.smartree.model.User
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -33,9 +36,7 @@ class SplashActivity : AppCompatActivity() {
                 }
             }
         }else{
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+            showLogin()
         }
     }
 
@@ -47,11 +48,21 @@ class SplashActivity : AppCompatActivity() {
         finish()
     }
 
+    private fun showLogin(){
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     private fun showForm(email:String, provider:ProviderType){
         val intent = Intent(this, RegistrationAfterActivity::class.java)
         intent.putExtra("email", email)
         intent.putExtra("provider", provider.name)
         startActivity(intent)
         finish()
+    }
+
+    private fun createGoogleAccount(account:GoogleSignInAccount){
+
     }
 }

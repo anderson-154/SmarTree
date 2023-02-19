@@ -7,10 +7,10 @@ import android.content.SharedPreferences
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.smartree.databinding.ActivityNavigationBinding
 import com.facebook.login.LoginManager
@@ -57,10 +57,6 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
         setup()
         showFragment(homeFragment)
         if(!haveLocationPermissions) askPermissions()
-
-        binding.profileButton.setOnClickListener {
-            startActivity(Intent(this,ProfileActivity::class.java))
-        }
     }
 
     private fun showFragment (fragment : Fragment){
@@ -93,8 +89,10 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
             .getBoolean("permissions", false)
     }
 
-    fun onLogout(result: ActivityResult){
+    private fun onLogout(result: ActivityResult){
+        Log.e("--------->","logout")
         if(result.resultCode== RESULT_OK){
+            Log.e("----------------->","OK")
             val prefs = getSharedPreferences(getString(R.string.prefs_file), MODE_PRIVATE).edit()
             prefs.clear()
             prefs.apply()

@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -151,7 +152,9 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    fun onGoogle(result: ActivityResult){
+    private fun onGoogle(result: ActivityResult){
+        binding.screen.visibility = View.GONE
+        binding.gifImageView2.visibility = View.VISIBLE
         val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
         try {
             val account = task.getResult(ApiException::class.java)
@@ -179,6 +182,8 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
                 }.addOnFailureListener{
+                    binding.screen.visibility = View.VISIBLE
+                    binding.gifImageView2.visibility = View.GONE
                     showAlert()
                 }
             }
