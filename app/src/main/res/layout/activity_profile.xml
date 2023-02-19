@@ -74,54 +74,14 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="0dp"
-            android:layout_height="220dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="-60dp"
             android:background="@drawable/background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/editProfileButton"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="48dp"
-                android:backgroundTint="@color/light_orange"
-                android:clickable="true"
-                app:backgroundTint="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/edit_img"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/settingsBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginBottom="48dp"
-                android:backgroundTint="@color/light_orange"
-                android:clickable="true"
-                app:backgroundTint="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/settings_img"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/logoutBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="36dp"
-                android:backgroundTint="@color/light_orange"
-                android:clickable="true"
-                app:backgroundTint="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@android:drawable/presence_busy"
-                tools:ignore="SpeakableTextPresentCheck" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/parent2">
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -309,6 +269,42 @@
                 app:layout_constraintTop_toTopOf="@+id/textView7" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Cerrar sesión"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/parent2" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/settingsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/light_orange"
+            android:clickable="true"
+            app:backgroundTint="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/logoutBtn"
+            app:layout_constraintTop_toTopOf="@+id/logoutBtn"
+            app:srcCompat="@drawable/settings_img"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/editProfileButton"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:backgroundTint="@color/light_orange"
+            android:clickable="true"
+            app:backgroundTint="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/logoutBtn"
+            app:layout_constraintTop_toTopOf="@+id/logoutBtn"
+            app:srcCompat="@drawable/edit_img"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

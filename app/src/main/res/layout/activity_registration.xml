@@ -155,11 +155,11 @@
             android:textColor="@color/dark_green"
             app:layout_constraintEnd_toStartOf="@+id/signInTxt"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/nextBtn"
-            app:layout_constraintTop_toBottomOf="@+id/nextBtn" />
+            app:layout_constraintStart_toStartOf="@+id/signupBtn"
+            app:layout_constraintTop_toBottomOf="@+id/signupBtn" />
 
         <Button
-            android:id="@+id/nextBtn"
+            android:id="@+id/signupBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -180,7 +180,7 @@
             android:text="@string/sesion"
             android:textColor="@color/dark_green"
             app:layout_constraintBottom_toBottomOf="@+id/nameTxt"
-            app:layout_constraintEnd_toEndOf="@+id/nextBtn"
+            app:layout_constraintEnd_toEndOf="@+id/signupBtn"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/nameTxt"
             app:layout_constraintTop_toTopOf="@+id/nameTxt" />

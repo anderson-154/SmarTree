@@ -25,7 +25,7 @@ class RegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.nextBtn.setOnClickListener {
+        binding.signupBtn.setOnClickListener {
 
             //Check if this account exists
             val email = binding.emailSignUpET.editText!!.text.toString()
@@ -44,11 +44,6 @@ class RegistrationActivity : AppCompatActivity() {
             }else{
                 showAlert("Por favor llene todos los campos y asegurese de que los campos coincidan")
             }
-        }
-
-        binding.nextBtn.setOnClickListener {
-            startActivity(Intent(this, RegistrationAfterActivity::class.java))
-            finish()
         }
 
         binding.backBtn.setOnClickListener {
