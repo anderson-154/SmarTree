@@ -87,7 +87,7 @@ class PalmsFragment : Fragment(), PalmAdapter.OnClickPalmListener  {
     }
 
     override fun openPalmInfo(id: String) {
-        val intent = Intent(activity, ProfileActivity::class.java)
+        val intent = Intent(activity, PalmEditActivity::class.java)
         intent.putExtra("palmID", id)
         startActivity(intent)
     }

@@ -35,6 +35,13 @@
             android:value="${MAPS_API_KEY}" />
 
         <activity
+            android:name=".PalmEditActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".SensorRegistrationActivity"
             android:exported="false">
             <meta-data

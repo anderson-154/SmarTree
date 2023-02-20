@@ -52,6 +52,7 @@ class PalmViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
             palmImg.setImageResource(R.drawable.linked)
         }
         else{
+            palmStatus.setTextColor(Color.parseColor("#CD4242"))
             palmImg.setImageResource(R.drawable.off)
         }
     }
