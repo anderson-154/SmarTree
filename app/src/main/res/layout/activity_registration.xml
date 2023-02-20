@@ -100,6 +100,7 @@
                 android:layout_height="match_parent"
                 android:background="#00FFFFFF"
                 android:hint="@string/contraseña"
+                android:password="true"
                 android:padding="5dp"
                 android:textColor="@color/black"
                 android:textColorHint="#99FFFFFF" />
@@ -126,6 +127,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#00FFFFFF"
+                android:password="true"
                 android:padding="5dp"
                 android:textColor="@color/black"
                 android:textColorHint="#99FFFFFF" />

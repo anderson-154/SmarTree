@@ -8,6 +8,30 @@
     android:contentDescription="@string/app_name"
     tools:context=".PalmRegistrationActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/serieET"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_input"
+        android:ems="10"
+        android:hint="Número de serie"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/placePalmET"
+        app:layout_constraintStart_toStartOf="@+id/placePalmET"
+        app:layout_constraintTop_toBottomOf="@+id/sensorTypeSpinner">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:padding="15dp"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
         android:layout_width="0dp"

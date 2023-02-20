@@ -4,7 +4,6 @@ package com.example.smartree
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
@@ -12,10 +11,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.R
 import com.example.smartree.databinding.ActivityPalmRegistrationBinding
 import com.example.smartree.model.Palm
+import com.example.smartree.model.Statistics
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-import com.google.gson.Gson
 import java.util.UUID
 
 class PalmRegistrationActivity : AppCompatActivity() {
@@ -56,28 +56,28 @@ class PalmRegistrationActivity : AppCompatActivity() {
         val id = uid +"_PALM_"+UUID.randomUUID()
         val name = binding.namePalmETLayout.editText?.text.toString()
         val place = binding.placePalmET.editText?.text.toString()
-        Log.e("--------------->", binding.radioGroup.checkedRadioButtonId.toString())
         val type = if(binding.radioButton.isChecked){
             "Chontaduro"
         }else{
             "Coco"
         }
-
         val index = binding.sensorSpinner.selectedItemPosition
-        val sensorID = if(index!=-1){
-            sensorsID[index]
-        }else{
-            ""
-        }
+        val sensorID = sensorsID[index]
+        val status = if(index!=0) "Enlazado" else "Desconectado"
         if(validatePalm(name, place)){
-            val palm = Palm(id, uid, name, type, place, sensorID, lat, lon )
+            val palm = Palm(id, uid, name, type, place, sensorID, lat, lon, status )
             Firebase.firestore.collection("palms").document(id).set(palm)
                 .addOnSuccessListener{
-                    val intent = Intent(this, NavigationActivity::class.java)
-                    val gson = Gson()
-                    intent.putExtra("palm", gson.toJson(palm))
-                    setResult(RESULT_OK, intent)
-                    finish()
+                    Firebase.firestore.collection("statistics").document(uid).get().addOnSuccessListener {
+                        val stat = it.toObject(Statistics::class.java)
+                        val total = stat?.total?.plus(1)
+                        Firebase.firestore.collection("sensors").document(palm.sensorID).update("linked", true).addOnSuccessListener {
+                            Firebase.firestore.collection("statistics").document(uid).update("total", total).addOnSuccessListener {
+                                Toast.makeText(this, "La palma fue agregada correctamente", Toast.LENGTH_SHORT).show()
+                                finish()
+                            }
+                        }
+                    }
                 }.addOnFailureListener {
                     Toast.makeText(this, "No fue posible agregar la palma", Toast.LENGTH_SHORT).show()
                 }
@@ -99,8 +99,11 @@ class PalmRegistrationActivity : AppCompatActivity() {
     }
 
     private fun setSpinner(){
+        sensors.add("Selecciona un sensor")
+        sensorsID.add("")
         Firebase.firestore.collection("sensors")
             .whereEqualTo("uid",Firebase.auth.currentUser!!.uid)
+            .whereEqualTo("linked", false)
             .get().addOnSuccessListener {list->
                 for (doc in list) {
                     val sensor = doc.toObject(Palm::class.java)

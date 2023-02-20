@@ -244,7 +244,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:gravity="center"
-        android:text="Selecciona las coordenadas"
+        android:text="Selecciona la ubicación"
         android:textAlignment="center"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/locationBtn"

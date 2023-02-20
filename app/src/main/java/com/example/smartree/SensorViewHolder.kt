@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smartree.model.Sensor
@@ -16,34 +17,35 @@ class SensorViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
     lateinit var onClickSensorListener: SensorsFragment
 
     //UI controllers
-    var sensorName: TextView = itemView.findViewById(R.id.sensorNameRow)
-    var sensorState: TextView = itemView.findViewById(R.id.stateSensorRow)
-    var constraintLayout: ConstraintLayout = itemView.findViewById(R.id.constraintLayoutRow)
-    var sensorType: TextView = itemView.findViewById(R.id.typeSensorText)
-    var sensorImg: ImageView = itemView.findViewById(R.id.imageStateSensorRow)
+    var sensorName: TextView = itemView.findViewById(R.id.nameSensor)
+    var sensorState: TextView = itemView.findViewById(R.id.statusSensorCard)
+    var constraintLayout: CardView = itemView.findViewById(R.id.sensorCard)
+    var sensorType: TextView = itemView.findViewById(R.id.sensorType)
+    var sensorImg: ImageView = itemView.findViewById(R.id.imgSensorCard)
 
     init {
         constraintLayout.setOnClickListener {
-            var id = sensor!!.id
+            val id = sensor!!.serie
             onClickSensorListener.openInfoSensor(id)
         }
     }
 
     fun bindSensor(sensorBind: Sensor) {
         sensor = sensorBind
-        sensorName.setText(sensorBind.name)
-        sensorType.setText("Tipo: "+sensorBind.type)
+        sensorName.text = sensorBind.name
+        sensorType.text = "Tipo: "+sensorBind.type
         checkStates(sensorBind.state)
     }
 
     private fun checkStates(state:String) {
-        if(state=="inactivo"){
-            sensorState.setText("Inactivo")
-            sensorState.setTextColor(Color.RED)
+        if(state=="Activo"){
+            sensorState.text = "Activo"
+            sensorState.setTextColor(Color.parseColor("#297012"))
+            sensorImg.setImageResource(R.drawable.on)
         }else{
-            sensorState.setText("Activo")
-            sensorState.setTextColor(Color.rgb(41,112,18))
-
+            sensorState.text = "Inactivo"
+            sensorState.setTextColor(Color.RED)
+            sensorImg.setImageResource(R.drawable.shutdown)
         }
     }
 }

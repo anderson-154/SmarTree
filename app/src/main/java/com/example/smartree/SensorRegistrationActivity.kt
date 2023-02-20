@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import com.example.smartree.databinding.ActivitySensorRegistrationBinding
+import com.example.smartree.model.Sensor
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
@@ -29,22 +31,20 @@ class SensorRegistrationActivity : AppCompatActivity() {
         setContentView(binding.root)
         loadSpinner()
         binding.registSensorButton.setOnClickListener {
-            var name = binding.nameSensorRegistText.text.toString()
-            var id = UUID.randomUUID().toString()
+            val uid = Firebase.auth.currentUser!!.uid
+            val name = binding.nameSensorRegistText.text.toString()
+            val serie = binding.serieET.editText?.text.toString()
 
-            if (name != "" && id != "" && sensorType!="") {
-                var sensor = Sensor(id, name, "", sensorType, "Activo")
+            if (name != "" && serie != "" && sensorType!="") {
+                val sensor = Sensor(serie, uid, name, sensorType, "Inactivo")
                 Firebase.firestore.collection("sensors")
-                    .document(id)
-                    .set(sensor).addOnCompleteListener {
+                    .document(serie)
+                    .set(sensor).addOnSuccessListener {
                         Toast.makeText(this, "Datos registrados exitosamente", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }.addOnFailureListener {
+                        Toast.makeText(this, "No fue posible registrar el sensor", Toast.LENGTH_SHORT).show()
                     }
-
-                val intent = Intent(this,HomeFragment::class.java).apply{
-                    putExtra("newSensor", "true")
-                    putExtra("sensor", Gson().toJson(sensor))
-                }
-                startActivity(intent)
             } else {
                 Toast.makeText(this, "Por favor, rellenar correctamente los campos", Toast.LENGTH_SHORT).show()
             }
@@ -84,7 +84,7 @@ class SensorRegistrationActivity : AppCompatActivity() {
                 return view
             }
         }
-        binding.sensorTypeSpinner.setAdapter(arrayAdapter)
+        binding.sensorTypeSpinner.adapter = arrayAdapter
     }
 
 }

@@ -1,10 +1,9 @@
 <resources>
     <string-array name="sensors_type">\
         <item>Tipo de sensor</item>
-        <item>Potasio y Fósforo</item>
-        <item>Temperatura</item>
-        <item>Humedad</item>
-        <item>PH</item>
+        <item>Gateway LoraWAN</item>
+        <item>Sismómetro</item>
+
     </string-array>
 
     <string-array name="sensors_state">

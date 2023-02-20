@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartree.databinding.FragmentSensorsBinding
 import com.example.smartree.model.Sensor
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -16,12 +17,12 @@ import com.google.firebase.ktx.Firebase
 class SensorsFragment : Fragment(), SensorAdapter.OnClickSensorListener {
     private var _binding: FragmentSensorsBinding? = null
     private val binding get() = _binding!!
-    val adapter = SensorAdapter()
+    private val adapter = SensorAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSensorsBinding.inflate(inflater, container, false)
         Util.initRecycler(
             binding.sensorsRecyclerView,
@@ -39,7 +40,8 @@ class SensorsFragment : Fragment(), SensorAdapter.OnClickSensorListener {
     }
 
     private fun loadSensors() {
-        Firebase.firestore.collection("sensors").get()
+        val uid = Firebase.auth.currentUser?.uid
+        Firebase.firestore.collection("sensors").whereEqualTo("uid", uid).get()
             .addOnCompleteListener { sensor ->
                 for (doc in sensor.result!!) {
                     adapter.addSensor(doc.toObject(Sensor::class.java))
