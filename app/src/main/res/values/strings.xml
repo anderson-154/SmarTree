@@ -77,7 +77,7 @@
     <string name="facebook_client_token">56789</string>
 
     <!-- Dashboard -->
-    <string name="title_total">Total de sensores</string>
+    <string name="title_total">Total de palmeras</string>
     <string name="title_healthy">Palmeras saludables</string>
     <string name="title_warn">Palmeras sospechosas</string>
     <string name="title_wrong">Palmeras infectadas</string>

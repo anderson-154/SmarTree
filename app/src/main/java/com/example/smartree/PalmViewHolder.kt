@@ -46,7 +46,8 @@ class PalmViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
         }else if(status=="Infectado"){
             palmStatus.setTextColor(Color.parseColor("#CD4242"))
             palmImg.setImageResource(R.drawable.bug)
-        }else if(status=="Enlazado"){
+        }else if(palm!!.sensorID!=""){
+            palmStatus.text = "Enlazado"
             palmStatus.setTextColor(Color.parseColor("#A0E5E8"))
             palmImg.setImageResource(R.drawable.linked)
         }

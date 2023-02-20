@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.R
 import com.example.smartree.databinding.ActivityPalmRegistrationBinding
 import com.example.smartree.model.Palm
+import com.example.smartree.model.Sensor
 import com.example.smartree.model.Statistics
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -63,9 +64,8 @@ class PalmRegistrationActivity : AppCompatActivity() {
         }
         val index = binding.sensorSpinner.selectedItemPosition
         val sensorID = sensorsID[index]
-        val status = if(index!=0) "Enlazado" else "Desconectado"
         if(validatePalm(name, place)){
-            val palm = Palm(id, uid, name, type, place, sensorID, lat, lon, status )
+            val palm = Palm(id, uid, name, type, place, sensorID, lat, lon)
             Firebase.firestore.collection("palms").document(id).set(palm)
                 .addOnSuccessListener{
                     Firebase.firestore.collection("statistics").document(uid).get().addOnSuccessListener {
@@ -106,9 +106,9 @@ class PalmRegistrationActivity : AppCompatActivity() {
             .whereEqualTo("linked", false)
             .get().addOnSuccessListener {list->
                 for (doc in list) {
-                    val sensor = doc.toObject(Palm::class.java)
+                    val sensor = doc.toObject(Sensor::class.java)
                     sensors.add(sensor.name)
-                    sensorsID.add(sensor.id)
+                    sensorsID.add(sensor.serie)
                 }
                 val sensorsAdapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,sensors)
                 binding.sensorSpinner.adapter = sensorsAdapter

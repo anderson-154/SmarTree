@@ -36,10 +36,17 @@ class SensorsFragment : Fragment(), SensorAdapter.OnClickSensorListener {
         binding.addSensorFlotatingButton.setOnClickListener {
             startActivity(Intent(activity, SensorRegistrationActivity::class.java))
         }
+
+        binding.refreshSensors.setOnRefreshListener {
+            loadSensors()
+            binding.refreshSensors.isRefreshing = false
+        }
+
         return binding.root
     }
 
     private fun loadSensors() {
+        adapter.clear()
         val uid = Firebase.auth.currentUser?.uid
         Firebase.firestore.collection("sensors").whereEqualTo("uid", uid).get()
             .addOnCompleteListener { sensor ->
