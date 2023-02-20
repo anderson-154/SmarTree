@@ -11,6 +11,6 @@ data class Palm (
     var sensorID: String="",
     var lat: Double=0.0,
     var lon: Double=0.0,
-    var status: String="Disconnected",
+    var status: String="Desconectado",
     var millis: Long = System.currentTimeMillis()
 )

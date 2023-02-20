@@ -1,27 +1,18 @@
 package com.example.smartree
 
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import com.example.smartree.databinding.ActivityLoginBinding
 import com.example.smartree.model.User
-import com.facebook.CallbackManager
-import com.facebook.FacebookCallback
-import com.facebook.FacebookException
-import com.facebook.login.LoginManager
-import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -33,9 +24,7 @@ class LoginActivity : AppCompatActivity() {
         ActivityLoginBinding.inflate(layoutInflater)
     }
     private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(), ::onGoogle)
-    private val callBackManager = CallbackManager.Factory.create()
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -90,27 +79,6 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
-        binding.facebookBtn.setOnClickListener{
-            LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
-            LoginManager.getInstance().registerCallback(callBackManager,
-                object : FacebookCallback<LoginResult>{
-                    override fun onSuccess(result: LoginResult) {
-                        val token = result.accessToken
-                        val credential = FacebookAuthProvider.getCredential(token.token)
-                        Firebase.auth.signInWithCredential(credential).addOnSuccessListener {
-                            showHome(it.user?.email?:"", ProviderType.FACEBOOK)
-                        }.addOnFailureListener{
-                            showAlert()
-                        }
-                    }
-                    override fun onCancel() {}
-
-                    override fun onError(error: FacebookException) {
-                        showAlert()
-                    }
-                })
-        }
-
         binding.forgotPasswordTV.setOnClickListener{
             val email=binding.emailSignInET.text.toString()
             if(email!=""){
@@ -128,12 +96,6 @@ class LoginActivity : AppCompatActivity() {
         if(alert!=null){
             showAlert(alert)
         }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        // Pass the activity result back to the Facebook SDK
-        callBackManager.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun showHome(email:String, provider:ProviderType ){

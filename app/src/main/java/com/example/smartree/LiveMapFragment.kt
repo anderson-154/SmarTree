@@ -65,19 +65,16 @@ class LiveMapFragment : Fragment (), MapsFragment.OnClickMarkerListener {
 
             binding.infoContainer.visibility = View.VISIBLE
 
-            db.collection("sensors").document(palm.sensorID).get().addOnSuccessListener {
-                val sensor = it.toObject(Sensor::class.java)!!
-                binding.statePinTV.text = sensor.state
-                if(sensor.state=="Saludable"){
-                    binding.statePinTV.setTextColor(resources.getColor(R.color.dark_green))
-                    binding.iconPin.setImageResource(R.drawable.health)
-                }else if(sensor.state=="Sospechoso"){
-                    binding.statePinTV.setTextColor(resources.getColor(R.color.light_orange))
-                    binding.iconPin.setImageResource(R.drawable.warning)
-                }else if(sensor.state=="Infectado"){
-                    binding.statePinTV.setTextColor(resources.getColor(R.color.red))
-                    binding.iconPin.setImageResource(R.drawable.bug)
-                }
+            binding.statePinTV.text = palm.status
+            if(palm.status=="Saludable"){
+                binding.statePinTV.setTextColor(resources.getColor(R.color.dark_green))
+                binding.iconPin.setImageResource(R.drawable.health)
+            }else if(palm.status=="Sospechoso"){
+                binding.statePinTV.setTextColor(resources.getColor(R.color.light_orange))
+                binding.iconPin.setImageResource(R.drawable.warning)
+            }else if(palm.status=="Infectado"){
+                binding.statePinTV.setTextColor(resources.getColor(R.color.red))
+                binding.iconPin.setImageResource(R.drawable.bug)
             }
 
             //Set names

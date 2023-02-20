@@ -153,13 +153,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="14dp"
             android:fontFamily="@font/poppins_bold"
             android:text="@string/registrar"
             android:textColor="@color/dark_green"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/facebookBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -170,38 +170,35 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/logo" />
 
-        <ImageButton
-            android:id="@+id/googleBtn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:background="#00FFFFFF"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toBottomOf="@+id/signInBtn"
-            app:srcCompat="@drawable/google" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_begin="201dp"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageButton
-            android:id="@+id/facebookBtn"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="28dp"
-            android:background="#00FFFFFF"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toBottomOf="@+id/signInBtn"
-            app:srcCompat="@drawable/facebook" />
+            android:layout_marginTop="39dp"
+            android:background="#572C2C"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signInBtn">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/googleBtn"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="#89E18D"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/google" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
