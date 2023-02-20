@@ -33,7 +33,7 @@ class PalmViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
     fun bindPalm(palmBind: Palm) {
         val status = palmBind.status
         palm = palmBind
-        palmPlace.text = palmBind.address
+        palmPlace.text = palmBind.place
         palmName.text = palmBind.name
         palmType.text = palmBind.type
         palmStatus.text = status

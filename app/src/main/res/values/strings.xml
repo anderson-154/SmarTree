@@ -81,6 +81,7 @@
     <string name="title_healthy">Palmeras saludables</string>
     <string name="title_warn">Palmeras sospechosas</string>
     <string name="title_wrong">Palmeras infectadas</string>
+    <string name="error">Error</string>
 
 
 </resources>

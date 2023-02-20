@@ -7,6 +7,56 @@
     android:contentDescription="@string/app_name"
     tools:context=".PalmRegistrationActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/placePalmET"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/background_input"
+        android:ems="10"
+        android:hint="Lugar"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="15dp"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/namePalmETLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/background_input"
+        android:ems="10"
+        android:hint="@string/name_palm"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="15dp"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
         android:layout_width="0dp"
@@ -60,33 +110,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar3" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/namePalmETLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/background_input"
-        android:ems="10"
-        android:hint="@string/name_palm"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nameSensorRegistText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#00FFFFFF"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:padding="15dp"
-            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
-
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="0dp"
@@ -97,7 +120,6 @@
         android:minHeight="48dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@+id/namePalmETLayout"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/namePalmETLayout"
         app:layout_constraintTop_toBottomOf="@+id/namePalmETLayout">
 
@@ -133,7 +155,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/cancelAddPalm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -141,27 +163,28 @@
         android:fontFamily="@font/poppins_bold"
         android:text="@string/cancelar"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout7"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3" />
+        app:layout_constraintTop_toBottomOf="@+id/sensorSpinner" />
 
     <Button
-        android:id="@+id/registSensorButton"
+        android:id="@+id/addPalm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_btn"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/aceptar"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="@+id/spinner3"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintBottom_toBottomOf="@+id/cancelAddPalm"
+        app:layout_constraintEnd_toEndOf="@+id/sensorSpinner"
+        app:layout_constraintTop_toTopOf="@+id/cancelAddPalm" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/locationBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/background_btn"
-        app:layout_constraintBottom_toBottomOf="@+id/sensorTypeSpinner"
-        app:layout_constraintStart_toStartOf="@+id/radioGroup"
-        app:layout_constraintTop_toTopOf="@+id/sensorTypeSpinner">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/placePalmET">
 
         <ImageView
             android:id="@+id/imageView12"
@@ -183,9 +206,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_btn"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner3"
+        app:layout_constraintBottom_toBottomOf="@+id/sensorSpinner"
         app:layout_constraintStart_toStartOf="@+id/locationBtn"
-        app:layout_constraintTop_toTopOf="@+id/spinner3">
+        app:layout_constraintTop_toTopOf="@+id/sensorSpinner">
 
         <ImageView
             android:id="@+id/imageView13"
@@ -203,37 +226,28 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Spinner
-        android:id="@+id/sensorTypeSpinner"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="64dp"
-        android:backgroundTint="@color/dark_green"
-        android:contentDescription="@string/ubication"
-        app:layout_constraintEnd_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-    <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/sensorSpinner"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="21dp"
         android:layout_marginEnd="36dp"
         android:backgroundTint="@color/dark_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout7"
-        app:layout_constraintTop_toBottomOf="@+id/sensorTypeSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/coordinatesTV" />
 
     <TextView
         android:id="@+id/coordinatesTV"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:gravity="center"
         android:text="Selecciona las coordenadas"
         android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/locationBtn"
-        app:layout_constraintTop_toTopOf="@+id/sensorTypeSpinner" />
+        app:layout_constraintTop_toTopOf="@+id/locationBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

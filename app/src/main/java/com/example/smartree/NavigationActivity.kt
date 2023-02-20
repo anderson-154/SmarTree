@@ -90,9 +90,7 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
     }
 
     private fun onLogout(result: ActivityResult){
-        Log.e("--------->","logout")
         if(result.resultCode== RESULT_OK){
-            Log.e("----------------->","OK")
             val prefs = getSharedPreferences(getString(R.string.prefs_file), MODE_PRIVATE).edit()
             prefs.clear()
             prefs.apply()
@@ -128,14 +126,16 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
         prefs.apply()
     }
 
-    private fun askPermissions(){
+    private fun askPermissions() {
         //Permissions
-        requestPermissions(arrayOf(
-            android.Manifest.permission.CAMERA,
-            android.Manifest.permission.READ_EXTERNAL_STORAGE,
-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            android.Manifest.permission.ACCESS_COARSE_LOCATION,
-            android.Manifest.permission.ACCESS_FINE_LOCATION)
-            ,1)
+        requestPermissions(
+            arrayOf(
+                android.Manifest.permission.CAMERA,
+                android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            ), 1
+        )
     }
 }

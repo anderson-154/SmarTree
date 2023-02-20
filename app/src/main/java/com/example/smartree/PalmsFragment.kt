@@ -2,7 +2,6 @@ package com.example.smartree
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,18 +32,22 @@ class PalmsFragment : Fragment(), PalmAdapter.OnClickPalmListener  {
         setTitle()
         loadPalms()
 
-        binding.addPalmFlotatingButton.setOnClickListener {
-            startActivity(Intent(activity, PalmRegistrationActivity::class.java))
+        binding.refreshPalms.setOnRefreshListener {
+            loadPalms()
+            binding.refreshPalms.isRefreshing = false
         }
+
         return binding.root
     }
 
     private fun loadPalms() {
+        adapter.clear()
         if(filter!="all"){
             Firebase.firestore.collection("palms")
-                .whereEqualTo("uid", Firebase.auth.currentUser!!.uid).whereEqualTo("status", filter).get()
-                .addOnCompleteListener { list ->
-                    for (doc in list.result!!) {
+                .whereEqualTo("uid", Firebase.auth.currentUser!!.uid)
+                .whereEqualTo("status", filter).orderBy("millis").get()
+                .addOnSuccessListener { list ->
+                    for (doc in list) {
                         val palm = doc.toObject(Palm::class.java)
                         adapter.addPalm(palm)
                     }
@@ -71,11 +74,10 @@ class PalmsFragment : Fragment(), PalmAdapter.OnClickPalmListener  {
                 binding.palmsTitle.text = "Palmas Infectadas"
                 binding.palmsTitle.setTextColor(resources.getColor(R.color.red))
             }else{
-                binding.palmsTitle.text = "Error"
+                binding.palmsTitle.text = getString(R.string.error)
             }
         }
     }
-
     companion object {
         fun newInstance() = PalmsFragment()
     }

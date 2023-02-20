@@ -91,7 +91,9 @@ class MapsFragment(private val isOnlySelector:Boolean) : Fragment() {
         Firebase.firestore.collection("palms").whereEqualTo("uid",Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
             for(task in it){
                 val palm = task.toObject(Palm::class.java)
-                putMarker(palm.lat, palm.lon, palm.id)
+                if(palm.lat!=0.0 || palm.lon!=0.0){
+                    putMarker(palm.lat, palm.lon, palm.id)
+                }
             }
         }.addOnFailureListener{
             Toast.makeText(activity, "Failed to load events", Toast.LENGTH_SHORT).show()

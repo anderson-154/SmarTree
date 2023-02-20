@@ -82,7 +82,7 @@ class LiveMapFragment : Fragment (), MapsFragment.OnClickMarkerListener {
 
             //Set names
             binding.namePinTV.text = palm.name
-            binding.addressPinTV.text = palm.address
+            binding.addressPinTV.text = palm.place
 
             //Request join to club
             binding.infoContainer.setOnClickListener{

@@ -24,53 +24,7 @@ class RegistrationAfterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        var types = ArrayList<String>()
-        types.add("Tipo de documento")
-        types.add("C.C")
-        types.add("PASAPORTE")
-
-
-        var spinnerTypeDocAdapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,types)
-
-        binding.spinnerTipoDoc.setAdapter(spinnerTypeDocAdapter)
-
-        var dptos = ArrayList<String>()
-        dptos.add("Departamento")
-        dptos.add("Amazonas")
-        dptos.add("Antioquia")
-        dptos.add("Arauca")
-        dptos.add("Atlántico")
-        dptos.add("Bolívar")
-        dptos.add("Boyacá")
-        dptos.add("Caldas")
-        dptos.add("Caquetá")
-        dptos.add("Casanare")
-        dptos.add("Cauca")
-        dptos.add("Cesar")
-        dptos.add("Chocó")
-        dptos.add("Córdoba")
-        dptos.add("Cundinamarca")
-        dptos.add("Guainía")
-        dptos.add("Guaviare")
-        dptos.add("Huila")
-        dptos.add("La Guajira")
-        dptos.add("Magdalena")
-        dptos.add("Meta")
-        dptos.add("Nariño")
-        dptos.add("Norte de Santander")
-        dptos.add("Putumayo")
-        dptos.add("Quindío")
-        dptos.add("Risaralda")
-        dptos.add("Santander")
-        dptos.add("Sucre")
-        dptos.add("Tolima")
-        dptos.add("Valle del Cauca")
-        dptos.add("Vaupés")
-        dptos.add("Vichada")
-
-        var spinnerDptosAdapter = ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,dptos)
-
-        binding.spinnerDpto.setAdapter(spinnerDptosAdapter)
+        setSpinners()
 
         binding.finishBtn.setOnClickListener {
 
@@ -86,7 +40,7 @@ class RegistrationAfterActivity : AppCompatActivity() {
             val dpto = binding.spinnerDpto.selectedItem.toString()
 
             //Check if are there empty fields
-            if((validate(listOf(document, name,lastName, phone, address, city))) && !(type.equals("Tipo de documento") && (dpto.equals("Departamento")))){
+            if((validate(listOf(document, name,lastName, phone, address, city))) && !(type == "Tipo de documento" && (dpto == "Departamento"))){
 
                 val user = User(uid, email, type, document, name, lastName,phone, address, city, dpto);
                 registerUserData(user)
@@ -134,5 +88,54 @@ class RegistrationAfterActivity : AppCompatActivity() {
         intent.putExtra("provider", provider)
         startActivity(intent)
         finish()
+    }
+
+    private fun setSpinners(){
+        val types = ArrayList<String>()
+        types.add("Tipo de documento")
+        types.add("C.C")
+        types.add("PASAPORTE")
+
+        val spinnerTypeDocAdapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,types)
+
+        binding.spinnerTipoDoc.adapter = spinnerTypeDocAdapter
+
+        val dptos = ArrayList<String>()
+        dptos.add("Departamento")
+        dptos.add("Amazonas")
+        dptos.add("Antioquia")
+        dptos.add("Arauca")
+        dptos.add("Atlántico")
+        dptos.add("Bolívar")
+        dptos.add("Boyacá")
+        dptos.add("Caldas")
+        dptos.add("Caquetá")
+        dptos.add("Casanare")
+        dptos.add("Cauca")
+        dptos.add("Cesar")
+        dptos.add("Chocó")
+        dptos.add("Córdoba")
+        dptos.add("Cundinamarca")
+        dptos.add("Guainía")
+        dptos.add("Guaviare")
+        dptos.add("Huila")
+        dptos.add("La Guajira")
+        dptos.add("Magdalena")
+        dptos.add("Meta")
+        dptos.add("Nariño")
+        dptos.add("Norte de Santander")
+        dptos.add("Putumayo")
+        dptos.add("Quindío")
+        dptos.add("Risaralda")
+        dptos.add("Santander")
+        dptos.add("Sucre")
+        dptos.add("Tolima")
+        dptos.add("Valle del Cauca")
+        dptos.add("Vaupés")
+        dptos.add("Vichada")
+
+        val spinnerDptosAdapter = ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,dptos)
+
+        binding.spinnerDpto.adapter = spinnerDptosAdapter
     }
 }

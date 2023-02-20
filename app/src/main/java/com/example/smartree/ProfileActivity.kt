@@ -23,7 +23,6 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.logoutBtn.setOnClickListener{
-            Log.e("----------------->","Button")
             setResult(RESULT_OK)
             finish()
         }
