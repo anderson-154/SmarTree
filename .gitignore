@@ -73,6 +73,7 @@ replay_pid*
 # Built application files
 *.ap_
 *.aab
+*.apk
 
 # Files for the ART/Dalvik VM
 *.dex
