@@ -1,7 +1,6 @@
 package com.example.smartree
 
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -15,13 +14,11 @@ import com.example.smartree.model.Sensor
 import com.example.smartree.model.Statistics
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import java.util.UUID
 
 class PalmRegistrationActivity : AppCompatActivity() {
 
-    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(), ::onResultLocationSelected)
     private var lat:Double=0.0
     private var lon:Double=0.0
     private var sensors = ArrayList<String>()
@@ -38,11 +35,6 @@ class PalmRegistrationActivity : AppCompatActivity() {
 
         binding.backBtnRPalm.setOnClickListener {
             finish()
-        }
-
-        binding.locationBtn.setOnClickListener{
-            val intent = Intent(this, LocationActivity::class.java)
-            launcher.launch(intent)
         }
 
         binding.addPalm.setOnClickListener{ addPalm() }
@@ -85,17 +77,6 @@ class PalmRegistrationActivity : AppCompatActivity() {
             Toast.makeText(this, "Campos vacios o incompletos", Toast.LENGTH_SHORT).show()
         }
 
-    }
-
-    private fun onResultLocationSelected(result:ActivityResult){
-        if(result.resultCode== RESULT_OK){
-            lat = result.data?.extras?.getDouble("lat")!!
-            lon = result.data?.extras?.getDouble("lon")!!
-            val coordinates = lat.toString() + lon
-            binding.coordinatesTV.text = coordinates
-        }else{
-            Toast.makeText(this, "Location not selected", Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun setSpinner(){

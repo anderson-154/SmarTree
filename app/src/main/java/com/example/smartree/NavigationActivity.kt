@@ -23,7 +23,6 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
     private lateinit var sensorsFragment: SensorsFragment
     private lateinit var palmsFragment: PalmsFragment
     private lateinit var homeFragment: HomeFragment
-    private lateinit var liveMapFragment: LiveMapFragment
     private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(), ::onLogout)
 
     private val binding: ActivityNavigationBinding by lazy {
@@ -37,7 +36,6 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
         homeFragment = HomeFragment.newInstance(this)
         sensorsFragment = SensorsFragment.newInstance()
         palmsFragment = PalmsFragment.newInstance()
-        liveMapFragment = LiveMapFragment.newInstance()
 
         val bundle = intent.extras
         val email = bundle?.getString("email")
@@ -65,7 +63,6 @@ class NavigationActivity : AppCompatActivity(), OnCardListener {
 
                 R.id.homemenu -> { showFragment(homeFragment) }
                 R.id.sensorsmenu -> { showFragment(sensorsFragment) }
-                R.id.mapmenu -> { showFragment(liveMapFragment) }
                 R.id.treemenu -> {
                     palmsFragment.setFilter("all")
                     showFragment(palmsFragment)

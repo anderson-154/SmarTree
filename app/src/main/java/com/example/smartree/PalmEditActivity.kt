@@ -1,29 +1,20 @@
 package com.example.smartree
 
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.R
-import com.example.smartree.databinding.ActivityEditProfileBinding
 import com.example.smartree.databinding.ActivityPalmEditBinding
-import com.example.smartree.databinding.ActivityPalmRegistrationBinding
 import com.example.smartree.model.Palm
 import com.example.smartree.model.Sensor
-import com.example.smartree.model.Statistics
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-import java.util.UUID
 
 class PalmEditActivity : AppCompatActivity() {
 
-    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(), ::onResultLocationSelected)
     private var lat:Double=0.0
     private var lon:Double=0.0
     private var sensors = ArrayList<String>()
@@ -44,11 +35,6 @@ class PalmEditActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.editLocation.setOnClickListener{
-            val intent = Intent(this, LocationActivity::class.java)
-            launcher.launch(intent)
-        }
-
         binding.editPalm.setOnClickListener{ editPalm() }
 
         binding.cancelEditPalm.setOnClickListener{
@@ -66,8 +52,6 @@ class PalmEditActivity : AppCompatActivity() {
                     binding.radioButton3.isChecked = false
                 }
                 binding.newPlacePalmET.editText!!.setText(palm.place)
-                val loc = "Lat: "+palm.lat + " Log: "+palm.lon
-                binding.editPosTV.text = loc
                 setSpinner(palm.sensorID)
             }.addOnFailureListener {
                 Toast.makeText(this, "No se pudo mostrar la información", Toast.LENGTH_SHORT).show()
@@ -112,17 +96,6 @@ class PalmEditActivity : AppCompatActivity() {
                 }
         }else{
             Toast.makeText(this, "Campos vacios o incompletos", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun onResultLocationSelected(result:ActivityResult){
-        if(result.resultCode== RESULT_OK){
-            lat = result.data?.extras?.getDouble("lat")!!
-            lon = result.data?.extras?.getDouble("lon")!!
-            val coordinates = lat.toString() + lon
-            binding.editPosTV.text = coordinates
-        }else{
-            Toast.makeText(this, "Location not selected", Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -177,38 +177,12 @@
         app:layout_constraintTop_toTopOf="@+id/cancelAddPalm" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/locationBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/background_btn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/placePalmET">
-
-        <ImageView
-            android:id="@+id/imageView12"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/map_white" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_btn"
         app:layout_constraintBottom_toBottomOf="@+id/sensorSpinner"
-        app:layout_constraintStart_toStartOf="@+id/locationBtn"
-        app:layout_constraintTop_toTopOf="@+id/sensorSpinner">
+        tools:layout_editor_absoluteX="32dp">
 
         <ImageView
             android:id="@+id/imageView13"
@@ -230,24 +204,12 @@
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="36dp"
         android:backgroundTint="@color/dark_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout7"
-        app:layout_constraintTop_toBottomOf="@+id/coordinatesTV" />
-
-    <TextView
-        android:id="@+id/coordinatesTV"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:gravity="center"
-        android:text="Selecciona la ubicación"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/locationBtn"
-        app:layout_constraintTop_toTopOf="@+id/locationBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/placePalmET" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
