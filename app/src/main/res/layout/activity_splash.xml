@@ -20,7 +20,7 @@
             android:layout_height="0dp"
             android:layout_centerVertical="true"
             android:adjustViewBounds="false"
-            android:src="@drawable/palm"
+            android:src="@drawable/palm_png"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

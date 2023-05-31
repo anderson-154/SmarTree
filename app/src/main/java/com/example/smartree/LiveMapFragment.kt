@@ -83,7 +83,7 @@ class LiveMapFragment : Fragment (), MapsFragment.OnClickMarkerListener {
 
             //Request join to club
             binding.infoContainer.setOnClickListener{
-                val intent = Intent(activity, ProfileActivity::class.java)
+                val intent = Intent(activity, PalmEditActivity::class.java)
                 intent.putExtra("palmId", palm.id)
                 startActivity(intent)
             }
