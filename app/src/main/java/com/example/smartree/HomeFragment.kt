@@ -55,6 +55,7 @@ class HomeFragment(onListener: OnCardListener) : Fragment() {
             binding.healthyTV.text = statistics?.healthy.toString()
             binding.warnTV.text = statistics?.warning.toString()
             binding.wrongTV.text = statistics?.danger.toString()
+            binding.lastDateTime.text = "Última actialización: "+statistics?.lastDateTime.toString()
 
         }.addOnCanceledListener {
             showAlert()
